@@ -18,3 +18,4 @@ Insert here
 
 • A map with addresses of reviewed locations
 • A slider on the front page showing recent reviews
+• The location search comes pre-loaded with the user's current location
