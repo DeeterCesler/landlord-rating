@@ -1,4 +1,4 @@
-# landlord-rating
+# Landlord Rating application
 a full-stack web application for rating landlords
 
 ### MVP
