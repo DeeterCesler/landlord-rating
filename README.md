@@ -17,3 +17,4 @@ Insert here
 ### Advanced features
 
 • A map with addresses of reviewed locations
+• A slider on the front page showing recent reviews
