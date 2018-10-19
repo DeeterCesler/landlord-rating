@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require("../models/users");
 const bcrypt = require("bcryptjs");
 
+req.session.username;
+
 router.get("/register", (req, res) => {
     res.render("auth/register.ejs");
 });
@@ -14,18 +16,21 @@ router.get("/login", (req, res) => {
 router.post('/register', async (req, res) => {
     const password = req.body.password;
     const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(12));
-    console.log(passwordHash)
     // Create an object to put into our database into the User Model
     const userEntry = {};
     userEntry.username = req.body.username;
     userEntry.password = passwordHash;
-  
+    userEntry.email = req.body.email;
+    userEntry.name = req.body.name;
     const user = await User.create(userEntry);
     console.log(user);
+    console.log("==================================================");
     // initializing the session here
-    // req.session.username = req.body.username;
+    req.session.username = req.body.username;
     req.session.logged   = true;
     req.session.message  = '';
+    console.log("GOT 2 HERE");
+    console.log("==================================================");
     res.redirect('/auth/login');
 });
   
