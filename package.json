@@ -1,0 +1,28 @@
+{
+  "name": "landlord-rating",
+  "version": "1.0.0",
+  "description": "a full-stack web application for rating landlords",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeeterCesler/landlord-rating.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeeterCesler/landlord-rating/issues"
+  },
+  "homepage": "https://github.com/DeeterCesler/landlord-rating#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-partial": "^0.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.3.4"
+  }
+}
