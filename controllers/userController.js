@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/",async (req, res) => {
     try {
-        const foundUser = await User.find(req.session.id);
+        const foundUsers = await User.find();
         res.render("users/index.ejs", {
             user: foundUser
         })
