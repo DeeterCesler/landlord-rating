@@ -9,7 +9,7 @@
 <body>
     <h1>Add your current or former to the system</h1>
     <h3>Or if a company manages your property, you can use them instead.</h3>
-    <form>
+    <form action="/landlords" method="POST">
         <p>Landlord or company name:</p><input type="text" name="name">
         <p>Rating:</p><input type="number" min="1" max="5" name="rating">
         <p>Zip code of landlord or company:</p><input type="number" name="zip" pattern=".{5,10}" required title="5 characters minimum">
