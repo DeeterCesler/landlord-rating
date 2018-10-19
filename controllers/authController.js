@@ -1,10 +1,14 @@
 const express = require("express");
 const router = express.Router();
-// const User = require("../models/users");
+const User = require("../models/users");
 const bcrypt = require("bcryptjs");
 
+router.get("/register", (req, res) => {
+    res.render("auth/register.ejs");
+});
+
 router.get("/login", (req, res) => {
-    res.render("users/login.ejs");
+    res.render("auth/login.ejs");
 });
 
 router.post('/register', async (req, res) => {
@@ -22,7 +26,7 @@ router.post('/register', async (req, res) => {
     // req.session.username = req.body.username;
     req.session.logged   = true;
     req.session.message  = '';
-    res.redirect('/authors');
+    res.redirect('/auth/login');
 });
   
   
