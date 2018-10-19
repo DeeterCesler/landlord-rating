@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landlords</title>
+</head>
+<body>
+    <h1>Landlords</h1>
+    <a href="/landlords/new">Add a new landlord</a>
+    <% for(let i=0; i<landlords.length; i++) { %>
+        <p><%= landlords[i].name %> has a rating of <%= landlords[i].rating %>.</p>
+    <% } %>
+</body>
+</html>
