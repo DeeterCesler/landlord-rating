@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 // require("./db/db");
 const userController = require("./controllers/userController");
+const authController = require("./controllers/authController");
 
 // middleware
 app.use(methodOverride("_method"));
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // routes
 app.use("/users", userController);
+app.user("/auth", authController);
 app.get("/", (req, res)=> {
     res.send("THIS SHIT LIVE");
 })
