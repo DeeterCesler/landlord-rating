@@ -39,8 +39,8 @@ router.get('/:id', async (req, res) => {
         landords: foundLandlord,
         user: foundUser,
         })
-    } catch err {
-
+    } catch (err) {
+        res.send(err);
     }
 })
 
