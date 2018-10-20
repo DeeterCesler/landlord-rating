@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const LandLord = require("../models/landlords");
+const Landlord = require("../models/landlords");
 
 router.get("/", async (req, res) => {
     try {
-        const foundLandlords = await LandLord.find({});
+        const foundLandlords = await Landlord.find({});
         res.render("landlords/index.ejs", {
             landlords: foundLandlords
         });
@@ -18,7 +18,7 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    await LandLord.create(req.body);
+    await Landlord.create(req.body);
     console.log(req.body);
     res.redirect("/landlords");
 });
