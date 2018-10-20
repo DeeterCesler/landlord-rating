@@ -7,6 +7,7 @@ require("./db/db");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
 const landlordController = require("./controllers/landlordController");
+const reviewController = require("./controllers/reviewController")
 
 // middleware
 app.use(methodOverride("_method"));
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use("/users", userController);
 app.use("/auth", authController);
 app.use("/landlords", landlordController);
+app.use("/reviews", reviewController)
 app.get("/", (req, res)=> {
     res.render("index.ejs");
 })
