@@ -8,6 +8,7 @@ require("./db/db");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
 const landlordController = require("./controllers/landlordController");
+const reiviewController = require("./controllers/reviewController");
 
 // middleware
 app.use(methodOverride("_method"));
@@ -22,6 +23,7 @@ app.use(session({
 app.use("/users", userController);
 app.use("/auth", authController);
 app.use("/landlords", landlordController);
+app.use("/reviews", reiviewController);
 app.get("/", (req, res)=> {
     res.render("index.ejs");
 })
