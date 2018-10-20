@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Reviews = require('../models/reviews');
 const Landlords = require('../models/landlords')
+const Users = require('../models/users')
 
 router.get('/', async (req, res) => {
     try {
@@ -13,8 +14,9 @@ router.get('/', async (req, res) => {
            landords: foundLandlords,
            reviews: foundReviews
         })
+    } catch (err) {
+        res.send(err)
     }
-
 })
 
 
