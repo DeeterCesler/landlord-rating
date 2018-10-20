@@ -17,7 +17,7 @@ app.use(session({
     secret: 'This is some random secret string',
     resave: false,
     saveUninitialized: false
-  }));
+}));
 
 // routes
 app.use("/users", userController);
