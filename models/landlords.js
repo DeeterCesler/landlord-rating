@@ -8,8 +8,14 @@ const landlordSchema = new mongoose.Schema({
         validate : {
             validator : Number.isInteger,
             message   : `{VALUE} is not an integer value`
-        },
-    zip: Number
-}});
+        }},
+    zip: {
+        type     : Number,
+        required : true,
+        validate : {
+            validator : Number.isInteger,
+            message   : `{VALUE} is not an integer value`
+        }},
+});
 
 module.exports = mongoose.model("Landlord", landlordSchema);
