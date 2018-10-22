@@ -88,8 +88,14 @@ router.get('/:id/edit', async (req, res)=>{
   });
   
 
-router.put('/:id', (req, res)=>{
-    Reviews.findOneAndUpdate(req.params.id, req.body, ()=>{
-      res.redirect('/photo');
-    });
-  });module.exports = router;
+router.put('/:id', async (req, res)=>{
+   try {
+    await Reviews.findOneAndUpdate(req.params.id, req.body);
+    res.redirect('/reviews');
+   } catch (err) {
+    res.send(err)
+   }
+   
+  });
+  
+  module.exports = router;
