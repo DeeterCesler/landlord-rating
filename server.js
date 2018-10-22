@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
+const session        = require('express-session');
 require("./db/db");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
@@ -12,6 +13,11 @@ const reviewController = require("./controllers/reviewController")
 // middleware
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(session({
+    secret: 'This is some random secret string',
+    resave: false,
+    saveUninitialized: false
+}));
 
 // routes
 app.use("/users", userController);
@@ -19,7 +25,9 @@ app.use("/auth", authController);
 app.use("/landlords", landlordController);
 app.use("/reviews", reviewController)
 app.get("/", (req, res)=> {
-    res.render("index.ejs");
+    res.render("index.ejs", {
+        user: req.session.username,
+    });
 })
 
 const port = 3000;

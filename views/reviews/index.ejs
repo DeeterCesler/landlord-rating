@@ -16,3 +16,24 @@
 </body>
 </html>
 
+<<<<<<< HEAD
+=======
+name : {type: String, required: true},
+    address: {type: String, required: true},
+    rating: {
+        type     : Number,
+        required : true,
+        unique   : true,
+        validate : {
+            validator : Number.isInteger,
+            message   : `{VALUE} is not an integer value`
+        },
+    comment:{type: String},
+    dateStart: {type: Date},
+    dateEnd : {type: Date},
+    user: {type: mongoose.Schema.Types.ObjectId, required: "Users"},
+    landlord: {type: mongoose.Schema.Types.ObjectId, required: "Landord"}
+    
+</body>
+</html>
+>>>>>>> 9f7623a046bdc1ca23afd8d94b55901e26a5bf24

@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require("../models/users");
 const bcrypt = require("bcryptjs");
 
-
 router.get("/register", (req, res) => {
     res.render("auth/register.ejs");
 });
@@ -45,8 +44,8 @@ router.post('/login', async (req, res) => {
             //to make sure the passwords match
             if(bcrypt.compareSync(req.body.password, foundUser.password)){
                 req.session.logged = true;
-
-                res.redirect('/authors')
+                req.session.username = foundUser.username;
+                res.redirect('/')
             } else {
                 req.session.message = 'Username or Password is Wrong';
                 res.redirect('/auth/login')
