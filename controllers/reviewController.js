@@ -52,7 +52,7 @@ router.get('/:id', async (req, res) => {
     // const foundLandlord = await Landlords.findOne({'reviews._id': req.params.id});
     // const foundUser = await Users.findOne({'reviews._id': req.params.id});
     res.render('reviews/show.ejs', {
-        reviews: foundReview,
+        review: foundReview,
         // landords: foundLandlord,
         // user: foundUser,
         })
@@ -73,4 +73,23 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-module.exports = router;
+// Reviews Edit Route
+
+router.get('/:id/edit', async (req, res)=>{
+    try {
+      const foundReview = await Reviews.findById(req.params.id);
+      res.render('reviews/edit.ejs', {
+        review: foundReview,
+      });
+
+    } catch (err){
+        res.send(err)
+    }
+  });
+  
+
+router.put('/:id', (req, res)=>{
+    Reviews.findOneAndUpdate(req.params.id, req.body, ()=>{
+      res.redirect('/photo');
+    });
+  });module.exports = router;

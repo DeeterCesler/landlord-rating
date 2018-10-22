@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const reviewsSchema = new mongoose.Schema ({
+    landlord: {type: String},
     address: {type: String, required: true},
     rating: {
         type     : Number,
@@ -13,8 +14,8 @@ const reviewsSchema = new mongoose.Schema ({
     comment: {type:String} ,
     dateStart: {type: Date},
     dateEnd : {type: Date},
-    // user: {type: mongoose.Schema.Types.ObjectId, required: "Users"},
-    // landlord: {type: mongoose.Schema.Types.ObjectId, required: "Landord"}
+    // user: {type: mongoose.Schema.Types.ObjectId, ref: "Users"},
+    // landlord: {type: mongoose.Schema.Types.ObjectId, ref: "Landord"}
 })
 
 module.exports = mongoose.model('Reviews', reviewsSchema);

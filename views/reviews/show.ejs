@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <section>
+            <li>
+                <%=review.landlord%></br>
+                <%=review.address%></br>
+                <%=review.rating%></br>
+                <%=review.comment%></br>
+                <%=review.dateStart%></br>
+                <%=review.dateEnd%></br>
+                <form action="/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
+            
+        </section>
+</body>
+</html>
+    
+
