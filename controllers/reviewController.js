@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 router.get('/new', async (req,res) => {
     // const foundLandlords = await Landlords.find({});
     // const foundUser = await Users.findById({});
-    res.render('reviews/new.ejs', {
+    res.render('/reviews/new.ejs', {
         // landords: foundLandlords,
         // users: foundUser,
     })
@@ -40,7 +40,7 @@ router.get('/:id', async (req, res) => {
     const foundReview = await Reviews.findById(req.params.id);
     const foundLandlord = await Landlords.findOne({'reviews._id': req.params.id});
     const foundUser = await Users.findOne({'reviews._id': req.params.id});
-    res.render('reviews/show.ejs', {
+    res.render('/reviews/show.ejs', {
         reviews: foundReview,
         landords: foundLandlord,
         user: foundUser,
