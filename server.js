@@ -25,7 +25,9 @@ app.use("/auth", authController);
 app.use("/landlords", landlordController);
 app.use("/reviews", reviewController)
 app.get("/", (req, res)=> {
-    res.render("index.ejs");
+    res.render("index.ejs", {
+        user: req.session.username,
+    });
 })
 
 const port = 3000;
