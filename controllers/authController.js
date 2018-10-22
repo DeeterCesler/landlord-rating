@@ -27,23 +27,22 @@ router.post('/register', async (req, res) => {
     console.log("==================================================");
     // initializing the session here
     req.session.username = req.body.username;
+    req.session.name = req.body.name;
     req.session.logged   = true;
     req.session.message  = '';
     console.log("GOT 2 HERE");
     console.log("==================================================");
-    res.redirect('/auth/login');
+    res.redirect('/');
 });
   
   
 router.post('/login', async (req, res) => {
     //first query the database to see if the user exists
     try {
-            const foundUser = await User.findOne({username: req.body.username});
-            console.log(foundUser);
-            console.log(foundUser._id)
-            if(foundUser){
-            // if the users exists use the bcrypt compare password
-            //to make sure the passwords match
+        const foundUser = await User.findOne({username: req.body.username});
+        if(foundUser){
+        // if the users exists use the bcrypt compare password
+        //to make sure the passwords match
             if(bcrypt.compareSync(req.body.password, foundUser.password)){
                 req.session.logged = true;
                 req.session.username = foundUser.username;
@@ -54,12 +53,13 @@ router.post('/login', async (req, res) => {
                 req.session.message = 'Username or Password is Wrong';
                 res.redirect('/auth/login');
             }
-        } else {
-                req.session.message = 'Username or Password is Wrong';
-                res.redirect('/auth/login');
-        } // end of foundUser
+    } else {
+            req.session.message = 'Username or Password is Wrong';
+            res.redirect('/auth/login');
+    } // end of foundUser
     } catch(err) {
-    res.send('error')
+        console.log(err);
+        res.send(err);
     }
 });
   
