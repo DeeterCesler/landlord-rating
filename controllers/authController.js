@@ -8,7 +8,9 @@ router.get("/register", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-    res.render("auth/login.ejs");
+    res.render("auth/login.ejs", {
+        message: req.session.message
+    });
 });
 
 router.post('/register', async (req, res) => {
@@ -45,14 +47,15 @@ router.post('/login', async (req, res) => {
             if(bcrypt.compareSync(req.body.password, foundUser.password)){
                 req.session.logged = true;
                 req.session.username = foundUser.username;
+                req.session.name = foundUser.name;
                 res.redirect('/')
             } else {
                 req.session.message = 'Username or Password is Wrong';
-                res.redirect('/auth/login')
+                res.redirect('/auth/login');
             }
         } else {
                 req.session.message = 'Username or Password is Wrong';
-                res.redirect('/auth/login')
+                res.redirect('/auth/login');
         } // end of foundUser
     } catch(err) {
     res.send('error')

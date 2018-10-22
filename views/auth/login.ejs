@@ -8,6 +8,9 @@
 </head>
 <body>
     <h3>User login</h3>
+    <% if(message){%>
+        <small><%= message %></small>
+    <% } %>
     <form method="POST" action="/auth/login">
         <p>Username:</p><input type="text" name="username">
         <p>Password:</p><input type="password" name="password"><br>
