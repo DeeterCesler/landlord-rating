@@ -9,31 +9,20 @@
 <body>
     <% for (let i= 0; i < reviews.length; i ++) { %>
         <section>
-            <li>reviews.name</li>
+            <li><%=reviews[i].landlord%></br>
+                <%=reviews[i].address%></br>
+                <%=reviews[i].rating%></br>
+                <%=reviews[i].comment%></br>
+                <%=reviews[i].dateStart%></br>
+                <%=reviews[i].dateEnd%></br>
+                <form action="/reviews/<%=reviews[i]._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
             
         </section>
    <% } %>
 </body>
 </html>
-
-<<<<<<< HEAD
-=======
-name : {type: String, required: true},
-    address: {type: String, required: true},
-    rating: {
-        type     : Number,
-        required : true,
-        unique   : true,
-        validate : {
-            validator : Number.isInteger,
-            message   : `{VALUE} is not an integer value`
-        },
-    comment:{type: String},
-    dateStart: {type: Date},
-    dateEnd : {type: Date},
-    user: {type: mongoose.Schema.Types.ObjectId, required: "Users"},
-    landlord: {type: mongoose.Schema.Types.ObjectId, required: "Landord"}
     
-</body>
-</html>
->>>>>>> 9f7623a046bdc1ca23afd8d94b55901e26a5bf24
+
