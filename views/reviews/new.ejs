@@ -7,7 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+   <form action ="/reviews" method = "POST">
+        <!-- Is this landlord name? -->
+        <input type= "hidden" name="user" value = "req.session.username">
+        <select>
+           <% for (let i = 0; i < landlords.length; i++) { %>
+            <option>landlord.name</option>
+         <% }%>
+        </select>
+        Address : <input type ="text" name= "address">
+        Rating : <input type="number" min="1" max="5" name="rating">
+        Comment :<input type="text-area" name="comment">
+        Date Moved In :<input type="date" min="01/01/1900" max="01/01/2019" name="dateStart">
+        Date Moved Out :<input type="date" min="01/01/1900" max="01/01/2019" name="dateStart">
+        <input type ="submit">
+
+   </form> 
    
 </body>
 </html>
+

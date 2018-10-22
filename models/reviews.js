@@ -18,4 +18,4 @@ const reviewsSchema = new mongoose.Schema ({
     landlord: {type: mongoose.Schema.Types.ObjectId, required: "Landord"}
 }})
 
-module.export = mongoose.model('Reviews', reviewsSchema);
+module.exports = mongoose.model('Reviews', reviewsSchema);
