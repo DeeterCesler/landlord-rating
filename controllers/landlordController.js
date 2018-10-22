@@ -18,9 +18,46 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    await Landlord.create(req.body);
-    console.log(req.body);
+    const newLandlord = await Landlord.create(req.body);
+    console.log(newLandlord);
+    console.log("BOI")
     res.redirect("/landlords");
+});
+
+// edit landlord
+router.get("/:id/edit", async (req, res) => {
+    try {
+        const foundLandlord = await Landlord.findById(req.params.id);
+        console.log(foundLandlord);
+        res.render("landlords/edit.ejs", {
+            landlord: foundLandlord
+        });
+    }catch(err){
+        console.log("WHOOPSIE")
+        res.send(err)
+    }
+});
+
+// update landlord
+router.put("/:id", async (req, res) => {
+    try {
+        const updatedLandlord = await Landlord.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect("/landlords");
+    }catch(err){
+        console.log("WHOOPSIE DAISY")
+        res.send(err)
+    }
+});
+
+// delete user
+router.delete("/:id", async (req, res) => {
+    console.log("Twerking");
+    try{
+        await Landlord.findByIdAndDelete(req.params.id);
+        res.redirect("/landlords");
+    }catch(err){
+        console.log(err);
+    }
 });
 
 module.exports = router;

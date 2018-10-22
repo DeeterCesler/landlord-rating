@@ -8,6 +8,7 @@ const Users = require('../models/users')
 
 // Reviews Index Route
 router.get('/', async (req, res) => {
+    console.log("REVIEWS CONTROLLER RUNNING");
     try {
         // const foundLandlords = await Landlords.find({});
         const foundReviews = await Reviews.find({});
