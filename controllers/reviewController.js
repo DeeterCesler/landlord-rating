@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const requireLogin = require("../middleware/requireLogin");
 const Reviews = require('../models/reviews');
 const Landlords = require('../models/landlords')
 const Users = require('../models/users')
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
   })
 
 // Reviews New Route
-router.get('/new', async (req,res) => {
+router.get('/new', requireLogin, async (req,res) => {
     const foundLandlords = await Landlords.find({});
     res.render('reviews/new.ejs', {
         landlords: foundLandlords,
