@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <% for (let i= 0; i < reviews.length; i ++) { %>
+        <section>
+            <li>reviews.name</li>
+            
+        </section>
+   <% } %>
+</body>
+</html>
+
+name : {type: String, required: true},
+    address: {type: String, required: true},
+    rating: {
+        type     : Number,
+        required : true,
+        unique   : true,
+        validate : {
+            validator : Number.isInteger,
+            message   : `{VALUE} is not an integer value`
+        },
+    comment:{type: String},
+    dateStart: {type: Date},
+    dateEnd : {type: Date},
+    user: {type: mongoose.Schema.Types.ObjectId, required: "Users"},
+    landlord: {type: mongoose.Schema.Types.ObjectId, required: "Landord"}

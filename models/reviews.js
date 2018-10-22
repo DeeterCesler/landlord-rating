@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const rewiewsSchema = new mongoose.Schema ({
+const reviewsSchema = new mongoose.Schema ({
     name : {type: String, required: true},
     address: {type: String, required: true},
     rating: {
@@ -18,4 +18,4 @@ const rewiewsSchema = new mongoose.Schema ({
     landlord: {type: mongoose.Schema.Types.ObjectId, required: "Landord"}
 }})
 
-module.export = mongoose.model('Reviews', reviewsSchema);
+module.exports = mongoose.model('Reviews', reviewsSchema);

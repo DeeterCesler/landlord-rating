@@ -5,6 +5,8 @@ const Reviews = require('../models/reviews');
 const Landlords = require('../models/landlords')
 const Users = require('../models/users')
 
+
+// Reviews Index Route
 router.get('/', async (req, res) => {
     try {
         const foundLandlords = await Landlords.find({});
@@ -20,15 +22,19 @@ router.get('/', async (req, res) => {
     }
   })
 
+
+// Reviews New Route
 router.get('/new', async (req,res) => {
-    const foundLandlords = await Landlords.find({});
-    const foundUser = await Users.findById({});
+    // const foundLandlords = await Landlords.find({});
+    // const foundUser = await Users.findById({});
     res.render('reviews/new.ejs', {
-        landords: foundLandlords,
-        users: foundUser,
+        // landords: foundLandlords,
+        // users: foundUser,
     })
 })
 
+
+// Reviews Show Route
 router.get('/:id', async (req, res) => {
     try {
     const foundReview = await Reviews.findById(req.params.id);
@@ -45,5 +51,10 @@ router.get('/:id', async (req, res) => {
 })
 
 
+// Create a review route
+router.post('/', async (req, res)=> {
+   const createdReview = await Reviews.create(req.body);
+   res.redirect('/reviews')
+});
 
 module.exports = router;
