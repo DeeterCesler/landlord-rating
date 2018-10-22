@@ -39,8 +39,8 @@ router.post('/login', async (req, res) => {
     //first query the database to see if the user exists
     try {
             const foundUser = await User.findOne({username: req.body.username});
-            console.log(foundUser)
-
+            console.log(foundUser);
+            console.log(foundUser._id)
             if(foundUser){
             // if the users exists use the bcrypt compare password
             //to make sure the passwords match
@@ -48,6 +48,7 @@ router.post('/login', async (req, res) => {
                 req.session.logged = true;
                 req.session.username = foundUser.username;
                 req.session.name = foundUser.name;
+                req.session.userId = foundUser._id;
                 res.redirect('/')
             } else {
                 req.session.message = 'Username or Password is Wrong';
