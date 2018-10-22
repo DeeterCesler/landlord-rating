@@ -6,6 +6,7 @@ const Landlords = require('../models/landlords')
 const Users = require('../models/users')
 
 router.get('/', async (req, res) => {
+    console.log("REVIEWS CONTROLLER RUNNING");
     try {
         const foundLandlords = await Landlords.find({});
         const foundReviews = await Reviews.find({});
