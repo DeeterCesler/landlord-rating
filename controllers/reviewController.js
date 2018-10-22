@@ -22,7 +22,6 @@ router.get('/', async (req, res) => {
     }
   })
 
-
 // Reviews New Route
 router.get('/new', async (req,res) => {
     // const foundLandlords = await Landlords.find({});
