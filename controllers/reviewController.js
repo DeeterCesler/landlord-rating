@@ -5,46 +5,92 @@ const Reviews = require('../models/reviews');
 const Landlords = require('../models/landlords')
 const Users = require('../models/users')
 
+
+// Reviews Index Route
 router.get('/', async (req, res) => {
     console.log("REVIEWS CONTROLLER RUNNING");
     try {
-        const foundLandlords = await Landlords.find({});
+        // const foundLandlords = await Landlords.find({});
         const foundReviews = await Reviews.find({});
-        const foundUsers = await Users.find({});
+        // const foundUsers = await Users.find({});
         res.render('reviews/index.ejs', {
-           landords: foundLandlords,
+        //    landords: foundLandlords,
            reviews: foundReviews,
-           users: foundUsers,
+        //    users: foundUsers,
         })
     } catch (err) {
         res.send(err)
     }
   })
 
+// Reviews New Route
 router.get('/new', async (req,res) => {
     const foundLandlords = await Landlords.find({});
-    const foundUser = await Users.findById({});
     res.render('reviews/new.ejs', {
-        landords: foundLandlords,
-        users: foundUser,
+        landlords: foundLandlords,
+        user: req.session.username
     })
 })
 
+// Create a review route
+router.post('/', async (req, res)=> {
+    try{
+        console.log('gettin here')
+        await Reviews.create(req.body);
+        console.log(req.body)
+        res.redirect('/reviews')
+    }catch(err){
+        res.send(err);
+    }
+
+ });
+ 
+
+// Reviews Show Route
 router.get('/:id', async (req, res) => {
     try {
     const foundReview = await Reviews.findById(req.params.id);
-    const foundLandlord = await Landlords.findOne({'reviews._id': req.params.id});
-    const foundUser = await Users.findOne({'reviews._id': req.params.id});
+    // const foundLandlord = await Landlords.findOne({'reviews._id': req.params.id});
+    // const foundUser = await Users.findOne({'reviews._id': req.params.id});
     res.render('reviews/show.ejs', {
-        reviews: foundReview,
-        landords: foundLandlord,
-        user: foundUser,
+        review: foundReview,
+        // landords: foundLandlord,
+        // user: foundUser,
         })
     } catch (err) {
         res.send(err);
     }
 })
 
+// Reviews Delete Route
 
+router.delete('/:id', async (req, res) => {
+    try {
+        await Reviews.findByIdAndDelete(req.params.id);
+        console.log('deleting')
+        res.redirect('/reviews');
+    } catch(err){
+        res.send(err);
+    }
+})
 
-module.exports = router;
+// Reviews Edit Route
+
+router.get('/:id/edit', async (req, res)=>{
+    try {
+      const foundReview = await Reviews.findById(req.params.id);
+      res.render('reviews/edit.ejs', {
+        review: foundReview,
+      });
+
+    } catch (err){
+        res.send(err)
+    }
+  });
+  
+
+router.put('/:id', (req, res)=>{
+    Reviews.findOneAndUpdate(req.params.id, req.body, ()=>{
+      res.redirect('/photo');
+    });
+  });module.exports = router;

@@ -50,4 +50,13 @@ router.delete("/delete", async (req, res) => {
     res.redirect("/");
 });
 
+
+router.get("/new", async (req, res) => {
+    try{
+        res.render("users/new.ejs")
+
+    } catch (err) {
+        res.send(err)
+    }
+})
 module.exports = router;

@@ -7,6 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1> <a href ="/reviews/new">Hey there make a new review yo</a> </h1>
+    <% for (let i= 0; i < reviews.length; i ++) { %>
+        <section>
+            <li>
+                <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br>
+                <%=reviews[i].address%></br>
+                <%=reviews[i].rating%></br>
+                <%=reviews[i].comment%></br>
+                <%=reviews[i].dateStart%></br>
+                <%=reviews[i].dateEnd%></br>
+                <form action="/reviews/<%=reviews[i]._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+                <p><a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review here</a></p>
+            </li>
+            
+        </section>
+   <% } %>
 </body>
 </html>
+    
+
