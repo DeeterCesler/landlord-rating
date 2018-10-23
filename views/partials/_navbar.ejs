@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/reviews">Reviews</a></li>
+        <li><a href="/landlords">Landlords</a></li>
+        <% if(user){ %>
+            <li><a href="/auth/logout">Logout</a></li> 
+        <% } %>
+    </ul>
+</nav>
