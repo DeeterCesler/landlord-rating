@@ -23,15 +23,11 @@ router.post('/register', async (req, res) => {
     userEntry.email = req.body.email;
     userEntry.name = req.body.name;
     const user = await User.create(userEntry);
-    console.log(user);
-    console.log("==================================================");
     // initializing the session here
     req.session.username = req.body.username;
     req.session.name = req.body.name;
     req.session.logged   = true;
     req.session.message  = '';
-    console.log("GOT 2 HERE");
-    console.log("==================================================");
     res.redirect('/');
 });
   
