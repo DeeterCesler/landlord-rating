@@ -16,6 +16,5 @@ const reviewsSchema = new mongoose.Schema ({
     user: {type: mongoose.Schema.Types.ObjectId, ref: "Users"},
     landlord: {type: mongoose.Schema.Types.ObjectId, ref: "Landlord"}
 })
-review.findbyid(_id).populate('Landlord')
 
 module.exports = mongoose.model('Reviews', reviewsSchema);

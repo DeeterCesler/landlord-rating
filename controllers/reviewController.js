@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
         const foundReviews = await Reviews.find({}).populate("landlord");
         // const foundUsers = await Users.find({});
         res.render('reviews/index.ejs', {
-           landlords: foundLandlords,
            reviews: foundReviews,
         //    users: foundUsers,
         })

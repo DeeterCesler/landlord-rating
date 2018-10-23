@@ -11,6 +11,7 @@ const landlordController = require("./controllers/landlordController");
 const reviewController = require("./controllers/reviewController")
 
 // middleware
+app.use(express.static('public'))
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
@@ -26,7 +27,8 @@ app.use(session({
 app.use("/users", userController);
 app.use("/auth", authController);
 app.use("/landlords", landlordController);
-app.use("/reviews", reviewController)
+app.use("/reviews", reviewController);
+
 app.get("/", (req, res)=> {
     res.render("index.ejs", {
         user: req.session.name
