@@ -9,9 +9,9 @@
 <body>
    <form action ="/reviews" method = "POST">
          <input type= "text" name="user" value = "<%= user %>">
-         Landlord : <select>
+         Landlord : <select name="landlord">
             <% for (let i= 0; i<landlords.length; i++) {%>
-            <option><%= landlords[i].name %></option>
+            <option name="landlord" value="<%= landlords[i]._id %>"><%= landlords[i].name %></option>
             <% } %>
         </select>
         <a href="/landlords/new">Create a New Landlord</a>

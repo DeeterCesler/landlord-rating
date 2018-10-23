@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const reviewsSchema = new mongoose.Schema ({
-    landlord: {type: String},
     address: {type: String, required: true},
     rating: {
         type     : Number,
@@ -15,7 +14,7 @@ const reviewsSchema = new mongoose.Schema ({
     dateStart: {type: Date},
     dateEnd : {type: Date},
     user: {type: mongoose.Schema.Types.ObjectId, ref: "Users"},
-    // landlord: {type: mongoose.Schema.Types.ObjectId, ref: "Landlord"}
+    landlord: {type: mongoose.Schema.Types.ObjectId, ref: "Landlord"}
 })
 review.findbyid(_id).populate('Landlord')
 

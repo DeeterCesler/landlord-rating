@@ -16,7 +16,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
     secret: 'This is some random secret string',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        maxAge: (2 * 60 * 60 * 1000)
+    }
 }));
 
 // routes
