@@ -11,22 +11,22 @@ const authController = require("./controllers/authController");
 const landlordController = require("./controllers/landlordController");
 const reviewController = require("./controllers/reviewController")
 
-const store = new MongoDBStore(
-    {
-        uri: 'mongodb://localhost/landlordapp',
-        databaseName: 'landlordapp',
-        collection: 'mySessions'
-    },
-    function(error) {
-        console.log("function ", error)
-      // Should have gotten an error
-    }
-);
+const store = new MongoDBStore({
+    uri: 'mongodb://localhost/landlordapp',
+    databaseName: 'landlordapp',
+    collection: 'mySessions'
+});
    
-//   store.on('error', function(error) {
-//       console.log("store on ", error);
-//     // Also get an error here
-//   });
+store.on('connected', function() {
+    store.client; // The underlying MongoClient object from the MongoDB driver
+});
+   
+  // Catch errors
+store.on('error', function(error) {
+    assert.ifError(error);
+    assert.ok(false);
+});
+   
 
 // middleware
 app.use(express.static('public'))
