@@ -11,10 +11,12 @@
     <% for (let i= 0; i < reviews.length; i ++) { %>
         <section>
             <li>
-                <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br>
-                <%=reviews[i].address%></br>
-                <%=reviews[i].rating%></br>
-                <%=reviews[i].comment%></br>
+                Landlord: <%= reviews[i].landlord.name %><br>
+                
+                <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
+                Property address: <%=reviews[i].address%></br>
+                Overall rating: <%=reviews[i].rating%></br>
+                Experience: <%=reviews[i].comment%></br>
                 <%=reviews[i].dateStart%></br>
                 <%=reviews[i].dateEnd%></br>
                 <form action="/reviews/<%=reviews[i]._id%>?_method=DELETE" method="POST">

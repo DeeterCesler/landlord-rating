@@ -9,11 +9,11 @@ const Users = require('../models/users')
 // Reviews Index Route
 router.get('/', async (req, res) => {
     try {
-        // const foundLandlords = await Landlords.find({});
-        const foundReviews = await Reviews.find({});
+        const foundLandlords = await Landlords.find({});
+        const foundReviews = await Reviews.find({}).populate("landlord");
         // const foundUsers = await Users.find({});
         res.render('reviews/index.ejs', {
-        //    landords: foundLandlords,
+           landlords: foundLandlords,
            reviews: foundReviews,
         //    users: foundUsers,
         })
@@ -27,7 +27,7 @@ router.get('/new', requireLogin, async (req,res) => {
     const foundLandlords = await Landlords.find({});
     res.render('reviews/new.ejs', {
         landlords: foundLandlords,
-        user: req.session.username
+        user: req.session.userId
     })
 })
 
