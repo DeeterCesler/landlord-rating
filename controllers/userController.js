@@ -53,7 +53,7 @@ router.delete("/delete", async (req, res) => {
 
 router.get("/new", async (req, res) => {
     try{
-        res.render("users/new.ejs")
+        res.redirect("/auth/register")
 
     } catch (err) {
         res.send(err)

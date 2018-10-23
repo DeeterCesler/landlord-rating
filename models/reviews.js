@@ -14,8 +14,8 @@ const reviewsSchema = new mongoose.Schema ({
     comment: {type:String} ,
     dateStart: {type: Date},
     dateEnd : {type: Date},
-    // user: {type: mongoose.Schema.Types.ObjectId, ref: "Users"},
-    // landlord: {type: mongoose.Schema.Types.ObjectId, ref: "Landord"}
+    user: {type: mongoose.Schema.Types.ObjectId, ref: "Users"},
+    landlord: {type: mongoose.Schema.Types.ObjectId, ref: "Landord"}
 })
 
 module.exports = mongoose.model('Reviews', reviewsSchema);

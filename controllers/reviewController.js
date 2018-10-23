@@ -51,11 +51,11 @@ router.get('/:id', async (req, res) => {
     try {
     const foundReview = await Reviews.findById(req.params.id);
     // const foundLandlord = await Landlords.findOne({'reviews._id': req.params.id});
-    // const foundUser = await Users.findOne({'reviews._id': req.params.id});
+    const foundUser = await Users.findOne({'reviews._id': req.params.id});
     res.render('reviews/show.ejs', {
         review: foundReview,
         // landords: foundLandlord,
-        // user: foundUser,
+        user: foundUser,
         })
     } catch (err) {
         res.send(err);

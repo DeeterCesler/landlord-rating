@@ -19,7 +19,7 @@ router.get("/new", (req, res) => {
 
 router.post("/", async (req, res) => {
     const newLandlord = await Landlord.create(req.body);
-    res.redirect("/landlords");
+    res.redirect("/reviews/new");
 });
 
 // edit landlord

@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action= "/reviews/<%=review._id%>?_method=PUT" method ="POST">
-        
+
         Landlord : <input type="text" name="landlord" value="<%=review.landlord%>">
         Address : <input type ="text" name= "address" value="<%=review.address%>">
         Rating : <input type="number" min="1" max="5" name="rating" value="<%=review.rating%>">

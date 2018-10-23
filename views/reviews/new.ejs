@@ -9,8 +9,12 @@
 <body>
    <form action ="/reviews" method = "POST">
          <input type= "text" name="user" value = "<%= user %>">
-
-        Landlord : <input type="text" name="landlord">
+         Landlord : <select>
+            <% for (let i= 0; i<landlords.length; i++) {%>
+            <option><%= landlords[i].name %></option>
+            <% } %>
+        </select>
+        <a href="/landlords/new">Create a New Landlord</a>
         Address : <input type ="text" name= "address">
         Rating : <input type="number" min="1" max="5" name="rating">
         Comment :<input type="text-area" name="comment">
