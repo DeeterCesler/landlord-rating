@@ -47,10 +47,10 @@ app.use(session({
     saveUninitialized: true
   }));
 
-// app.use(async (req, res, next) => {
-//     res.locals.message = req.session.user || {};
-//     next();
-// })
+app.use(async (req, res, next) => {
+    res.locals.user = req.session.userId || {};
+    next();
+})
 
 // routes
 app.use("/users", requireLogin, userController);
