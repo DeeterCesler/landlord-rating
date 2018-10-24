@@ -17,5 +17,14 @@
         <p><%= landlords[i].name %> has a rating of <%= landlords[i].rating %>.</p>
         <p><a href="/landlords/<%= landlords[i]._id %>/edit">edit <%= landlords[i].name %></a></p>
     <% } %>
+
+    <form role="search" action="/landlords/search" method="POST">
+        <div class="search-control">
+            <input type="search" id="site-search" name="q"
+                    placeholder="Search the site..."
+                    aria-label="Search through site content">
+            <input type="submit">
+        </div>
+    </form>
 </body>
 </html>
