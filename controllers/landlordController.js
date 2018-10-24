@@ -32,6 +32,20 @@ router.post("/", async (req, res) => {
     res.redirect("/reviews/new");
 });
 
+// show a landlord
+router.get("/:id", async (req, res) => {
+    try {
+        const foundLandlord = await Landlord.findById(req.params.id);
+        console.log(foundLandlord);
+        res.render("landlords/show.ejs", {
+            landlord: foundLandlord
+        });
+    }catch(err){
+        console.log("WHOOPSIE")
+        res.send(err)
+    }
+});
+
 // edit landlord
 router.get("/:id/edit", async (req, res) => {
     try {
