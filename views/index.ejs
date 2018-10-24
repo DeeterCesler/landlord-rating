@@ -7,17 +7,26 @@
 <body>
     <%- include ./partials/_navbar %>     
       <!-- Page Content -->
-      <div class = "top-space">
-
-        </div>  
+    
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100 denver-img" src="http://localhost:3000/images/denver.png" alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+                  <img src="http://localhost:3000/images/rentsmart-logo-white.png" height="250px" width="200px">
+                  <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
+\                </div>
+            </div>
+        </div> 
+      </div>
+  
         <h1 class="welcome top">Welcome to Rent Smart</h1>
         <% if(user) { %>
           <p>Hello, <%= user %></p>
       <% } %>
         <h2>leave reviews on your landlord</h2>
 
-  
-        <!-- Marketing Icons Section -->
+        
         <div class="row">
           <div class="col-lg-4 mb-4">
             <div class="card h-100">

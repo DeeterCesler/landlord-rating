@@ -3,3 +3,31 @@
     margin-top: 120px ;
 }
 
+.carousel-caption {
+    top: 30%;
+    bottom: auto;
+}
+
+.large-caption {
+    font-size: 5em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+
+}
+
+.denver-img {
+    opacity: 0.85;
+}
+
+.card {
+    margin-top: 30px;
+}
+
+/*//////////////////////////////////////////////////////////////////
+Login Page
+*/
+
+.login {
+    top: 30%;
+
+}
