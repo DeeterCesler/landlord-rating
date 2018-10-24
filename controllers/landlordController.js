@@ -21,8 +21,8 @@ router.get("/new", (req, res) => {
 router.post("/search", async (req, res) => {
     const foundLandlords = await Landlord.find({name: req.body.q});
     res.render('landlords/search.ejs', {
-        landlords: foundLandlords
-    
+        landlords: foundLandlords,
+        query: req.body.q
     })
 })
 

@@ -10,6 +10,8 @@ const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
 const landlordController = require("./controllers/landlordController");
 const reviewController = require("./controllers/reviewController")
+const Reviews = require('./models/reviews');
+
 
 const requireLogin = require("./middleware/requireLogin");
 
@@ -58,9 +60,11 @@ app.use("/auth", authController);
 app.use("/landlords", landlordController);
 app.use("/reviews", reviewController);
 
-app.get("/", (req, res)=> {
+app.get("/", async (req, res)=> {
+    const foundReviews = await Reviews.find({}).populate("landlord");
     res.render("index.ejs", {
-        user: req.session.name
+        user: req.session.name,
+        reviews: foundReviews
     });
 })
 
