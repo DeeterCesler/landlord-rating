@@ -6,7 +6,8 @@ router.get("/", async (req, res) => {
     try {
         const foundLandlords = await Landlord.find({});
         res.render("landlords/index.ejs", {
-            landlords: foundLandlords
+            landlords: foundLandlords,
+            user: req.session.name
         });
     }catch(err){
         res.send(err);

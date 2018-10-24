@@ -11,6 +11,8 @@ const authController = require("./controllers/authController");
 const landlordController = require("./controllers/landlordController");
 const reviewController = require("./controllers/reviewController")
 
+const requireLogin = require("./middleware/requireLogin");
+
 const store = new MongoDBStore({
     uri: 'mongodb://localhost/landlordapp',
     databaseName: 'landlordapp',
@@ -51,7 +53,7 @@ app.use(session({
 // })
 
 // routes
-app.use("/users", userController);
+app.use("/users", requireLogin, userController);
 app.use("/auth", authController);
 app.use("/landlords", landlordController);
 app.use("/reviews", reviewController);
