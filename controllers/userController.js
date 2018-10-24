@@ -1,13 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/users");
+const Reviews = require("../models/reviews");
 
 // show route
 router.get("/", async (req, res) => {
     try {
-        const foundUser = await User.findOne({username: req.session.username}).populate("review");;
+        const foundUser = await User.findOne({username: req.session.username}).populate("reviews");;
+        const userReviews = await Reviews.find({user: foundUser._id}).populate("landlord");
+        console.log(foundUser);
         res.render("users/index.ejs", {
-            user: foundUser
+            user: foundUser,
+            reviews: userReviews
         });
     }catch(err){
         console.log("WHOOPSIE")

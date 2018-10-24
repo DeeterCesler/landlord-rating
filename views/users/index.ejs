@@ -17,13 +17,14 @@
             </div>
         </div>
     <br>
-    <% console.log(user) %>
+    <% for(let i=0; i < reviews.length; i++) { %>
     <div class="container">
         <div class="col-lg-4 mb-4">
             <div class="card h-100">
-            <h4 class="card-header">Review</h4>
+            <h4 class="card-header"><%= reviews[i].address %></h4>
             <div class="card-body">
-                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque."</p>
+                <p class="card-text">What you said about <i><%= reviews[i].landlord.name %></i>:</p>
+                <p class="card-text">"<%= reviews[i].comment %>"</p>
             </div>
             <div class="card-footer">
                 <a href="#" class="btn btn-primary">Learn More</a>
@@ -31,6 +32,7 @@
             </div>
         </div>
     </div>
+    <% } %>
     <br>
     <p><a href="users/edit">edit your profile</a></p>
     <br>
