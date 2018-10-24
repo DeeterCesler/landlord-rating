@@ -10,21 +10,56 @@
     <div class = "top-space">
 
     </div>
+    <div class="container">
+         <!-- Jumbotron Header -->
+         <header class="jumbotron my-4">
+                <h1 class="display-3">REVIEW TIME!</h1>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+                <a href ="/reviews/new" class="btn btn-primary btn-lg">Create a Review!</a>
+              </header>
+        
+              <!-- Page Features -->
+              <div class ="col"></div>
+              <div class="row text-center col-8 justify-content-md-center">
+             <% for (let i= 0; i < landlords.length; i ++) { %>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">landlord</h4>
+                      <h1>Landlords</h1>
+                      <p><%= landlords[i].name %> has a rating of <%= landlords[i].rating %>.</p>
+                      <p><a href="/landlords/<%= landlords[i]._id %>/edit">edit <%= landlords[i].name %>
+                      <!-- <% for(let i=0; i<landlords.length; i++) { %>
+                         lords[i].name %></a></p>
+                      <% } %>
+                   -->
+                  </div>
+                </div>
+                <% } %>
+              </div>
+              <div class="col"></div>
+              <!-- /.row -->
+            
+              <a href="/landlords/new">Add a new landlord</a>
 
-    <h1>Landlords</h1>
-    <a href="/landlords/new">Add a new landlord</a>
-    <% for(let i=0; i<landlords.length; i++) { %>
-        <p><%= landlords[i].name %> has a rating of <%= landlords[i].rating %>.</p>
-        <p><a href="/landlords/<%= landlords[i]._id %>/edit">edit <%= landlords[i].name %></a></p>
-    <% } %>
-
-    <form role="search" action="/landlords/search" method="POST">
-        <div class="search-control">
-            <input type="search" id="site-search" name="q"
-                    placeholder="Search the site..."
-                    aria-label="Search through site content">
-            <input type="submit">
+        
+              <form role="search" action="/landlords/search" method="POST">
+                <div class="search-control">
+                    <input type="search" id="site-search" name="q"
+                            placeholder="Search the site..."
+                            aria-label="Search through site content">
+                    <input type="submit">
+                </div>
+            </form>              
+        
+        
+            <!-- Footer -->
+            <footer class="py-5 bg-dark">
+              <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; RentSmart 2018</p>
+              </div>
+              <!-- /.container -->
+            </footer>
         </div>
-    </form>
+        
 </body>
 </html>

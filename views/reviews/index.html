@@ -114,3 +114,27 @@
 <input type="text" class="form-control" id="inputRating" name="city">
 
  <input type="number" min="1" max="5" name="rating">
+
+
+
+ <% for (let i= 0; i < reviews.length; i ++) { %>
+	<div class="col-6">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Review</h4>
+
+				Landlord: <%= reviews[i].landlord.name %><br> 
+				<!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
+				Property address: <%=reviews[i].address%></br>
+				Overall rating: <%=reviews[i].rating%></br>
+				Experience: <%=reviews[i].comment%></br>
+				<%=reviews[i].dateStart%></br>
+				<%=reviews[i].dateEnd%></br>
+				<form action="/reviews/<%=reviews[i]._id%>?_method=DELETE" method="POST">
+						<input type="submit" value="Delete">
+				</form>
+				<p><a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review here</a></p>
+						</div>
+		</div>
+	</div>
+	<% } %>
