@@ -5,7 +5,7 @@ const User = require("../models/users");
 // show route
 router.get("/", async (req, res) => {
     try {
-        const foundUser = await User.findOne({username: req.session.username});
+        const foundUser = await User.findOne({username: req.session.username}).populate("review");;
         res.render("users/index.ejs", {
             user: foundUser
         });

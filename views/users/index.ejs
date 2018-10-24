@@ -11,10 +11,26 @@
     <div class = "top-space">
 
         </div>
-    
-    <h1>Here is the user, baybee</h1>
-    <h2><%= user.name %></h2>
+        <div class="container">
+            <div class="row">
+                <h1>Hey <%= user.name %>, here are your reviews.</h1>
+            </div>
+        </div>
     <br>
+    <% console.log(user) %>
+    <div class="container">
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+            <h4 class="card-header">Review</h4>
+            <div class="card-body">
+                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque."</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            </div>
+        </div>
+    </div>
     <br>
     <p><a href="users/edit">edit your profile</a></p>
     <br>
