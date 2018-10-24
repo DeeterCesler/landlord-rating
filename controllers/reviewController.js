@@ -34,10 +34,11 @@ router.get('/new', requireLogin, async (req,res) => {
 // Create a review route
 router.post('/', async (req, res)=> {
     try{
-        console.log('gettin here')
-        await Reviews.create(req.body);
-        console.log(req.body)
-        res.redirect('/reviews')
+        const newReview = await Reviews.create(req.body);
+        const foundUser = await Users.findById(req.body.user);
+        foundUser.reviews.push(newReview._id);
+        foundUser.save();
+        res.redirect('/reviews');
     }catch(err){
         res.send(err);
     }
