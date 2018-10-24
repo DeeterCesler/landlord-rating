@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <%- include ../partials/_header %>
+
     <title>Document</title>
 </head>
 <body>
-    <h1> <a href ="/reviews/new">Hey there make a new review yo</a> </h1>
+        <%- include ../partials/_navbar %>
+
+        <div class = "top-space">
+
+            </div>
+
+    <h1 class ="top"> <a href ="/reviews/new">Hey there make a new review yo</a> </h1>
     <% for (let i= 0; i < reviews.length; i ++) { %>
         <section>
             <li>
