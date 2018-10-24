@@ -17,17 +17,17 @@
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
                 <a href ="/reviews/new" class="btn btn-primary btn-lg">Create a Review!</a>
               </header>
-        
+        <h1>Landlords</h1>
+              
               <!-- Page Features -->
               <div class ="col"></div>
               <div class="row text-center col-8 justify-content-md-center">
+              
              <% for (let i= 0; i < landlords.length; i ++) { %>
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">landlord</h4>
-                      <h1>Landlords</h1>
-                      <p><%= landlords[i].name %> has a rating of <%= landlords[i].rating %>.</p>
-                      <p><a href="/landlords/<%= landlords[i]._id %>/edit">edit <%= landlords[i].name %>
+                      <h4 class="card-title"><%= landlords[i].name %></h4>
+                      <p><a href="/landlords/<%= landlords[i]._id %>">see more about <%= landlords[i].name %></a></p>
                       <!-- <% for(let i=0; i<landlords.length; i++) { %>
                          lords[i].name %></a></p>
                       <% } %>
