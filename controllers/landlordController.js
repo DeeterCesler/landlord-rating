@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Landlord = require("../models/landlords");
+const Reviews = require("../models/reviews");
+const User = require("../models/users");
 
 router.get("/", async (req, res) => {
     try {
@@ -37,12 +39,16 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const foundLandlord = await Landlord.findById(req.params.id);
-        console.log(foundLandlord);
+        const landlordReviews = await Reviews.find({landlord: foundLandlord._id}).populate("landlord");
+        const usersNames = await Reviews.find({landlord: foundLandlord._id}).populate("user");
         res.render("landlords/show.ejs", {
-            landlord: foundLandlord
+            landlord: foundLandlord,
+            reviews: landlordReviews,
+            userReviews: usersNames
         });
     }catch(err){
         console.log("WHOOPSIE")
+        console.log(err);
         res.send(err)
     }
 });
@@ -51,7 +57,6 @@ router.get("/:id", async (req, res) => {
 router.get("/:id/edit", async (req, res) => {
     try {
         const foundLandlord = await Landlord.findById(req.params.id);
-        console.log(foundLandlord);
         res.render("landlords/edit.ejs", {
             landlord: foundLandlord
         });

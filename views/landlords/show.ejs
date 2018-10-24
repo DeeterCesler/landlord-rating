@@ -6,9 +6,35 @@
 </head>
 <body>
     <%- include ../partials/_navbar %>
-    <br>
-    <br>
-    <br>
-    <h1><%= landlord.name %></h1>
+    <div class = "top-space">
+
+        </div>
+    <div class="container">
+        <!-- <div class="row"> -->
+            <h1><%= landlord.name %></h1>
+            <p><%= landlord.name %>'s overall rating: <%=  %></p>
+            <h3>Reviews about <%= landlord.name %>:</h3>
+            <% for(let i=0; i < reviews.length; i++) { %>
+                <div class="card h-100" style="margin: 4.1%">
+                <h4 class="card-header"><%= reviews[i].address %></h4>
+                <div class="card-body">
+                    <p class="card-text">What 
+                        <% for(let j=0; j < userReviews.length; j++) { %>
+                            <% if(reviews[i].user.toString() === userReviews[j].user._id.toString()){ %>
+                                <%= userReviews[j].user.username %>
+                                <% break %>
+                            <% } %>
+                        <% } %>
+                         said about <i><%= reviews[i].landlord.name %></i>:</p>
+                    <p class="card-text">"<%= reviews[i].comment %>"</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+                </div>
+            <% } %>
+            <p><a href="/landlords/<%= landlord._id %>/edit">edit <%= landlord.name %>
+        <!-- </div> -->
+    </div>
 </body>
 </html>
