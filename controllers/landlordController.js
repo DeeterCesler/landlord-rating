@@ -18,6 +18,15 @@ router.get("/new", (req, res) => {
     res.render("landlords/new.ejs");
 });
 
+router.post("/search", async (req, res) => {
+    const foundLandlords = await Landlord.find({name: req.body.q});
+    res.render('landlords/search.ejs', {
+        landlords: foundLandlords
+    })
+})
+
+
+
 router.post("/", async (req, res) => {
     const newLandlord = await Landlord.create(req.body);
     res.redirect("/reviews/new");
