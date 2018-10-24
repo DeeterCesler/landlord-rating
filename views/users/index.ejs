@@ -17,22 +17,26 @@
             </div>
         </div>
     <br>
-    <% for(let i=0; i < reviews.length; i++) { %>
     <div class="container">
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-            <h4 class="card-header"><%= reviews[i].address %></h4>
-            <div class="card-body">
-                <p class="card-text">What you said about <i><%= reviews[i].landlord.name %></i>:</p>
-                <p class="card-text">"<%= reviews[i].comment %>"</p>
-            </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-            </div>
+        <div class="col-lg-12">
+                <div class="row">
+                    <!-- <div class="col-sm-6"> -->
+                    <% for(let i=0; i < reviews.length; i++) { %>
+                        <div class="card h-100" style="margin: 15px">
+                        <h4 class="card-header"><%= reviews[i].address %></h4>
+                        <div class="card-body">
+                            <p class="card-text">What you said about <i><%= reviews[i].landlord.name %></i>:</p>
+                            <p class="card-text">"<%= reviews[i].comment %>"</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                        </div>
+                    <% } %>
+                    <!-- </div> -->
+                </div>
         </div>
     </div>
-    <% } %>
     <br>
     <p><a href="users/edit">edit your profile</a></p>
     <br>
