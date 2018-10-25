@@ -74,6 +74,7 @@ div.jumbotron {
     padding-top: 70px;
 }
 
+
 .landlord-jumbo-new {
     background: url("http://localhost:3000/images/white-apartments.png") ;
     background-size: cover;
@@ -94,6 +95,7 @@ div.jumbotron {
     padding-left: 15em;
     padding-bottom: 5em;
 }
+=======
 
 .login-background {
     background-image: url("./images/condo.jpg");
@@ -107,4 +109,3 @@ div.jumbotron {
     /* opacity: 50%; */
     /* fill-opacity: 50%; */
 }
-
