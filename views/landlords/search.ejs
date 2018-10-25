@@ -44,7 +44,7 @@
                                     <p>No reviews submitted for <%=query%> yet.</p>
                                     <% break; %>
                                     <% } else { %>
-                                <p>Overall rating: <%= average %></p>
+                                <p>Overall rating: <%= parseFloat(average).toFixed(2)%> out of 5</p>
                                 <% } %>
                             </li>
                         </ul>

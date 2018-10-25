@@ -12,7 +12,20 @@
     <div class="container">
         <!-- <div class="row"> -->
             <h1><%= landlord.name %></h1>
-            <p><%= landlord.name %>'s overall rating: <%=  %></p>
+            <p><%= landlord.name %>'s overall rating: <%=  %>
+                <% let sum = 0; %>
+                <% let ratingsCounter = 0; %> 
+                <% for(let j=0; j < reviews.length; j++) { %>
+                    <% sum += reviews[j].rating; %>
+                    <% ratingsCounter++; %>
+                <% } %>
+                <% const average = (sum / ratingsCounter) %>
+                <% if(!average){ %>
+                    <p>No reviews submitted for <%=landlord.name%> yet.</p>
+                <% } else { %>
+                <%= parseFloat(average).toFixed(2)%>
+                <% } %>
+            out of 5</p>
             <h3>Reviews about <%= landlord.name %>:</h3>
             <% for(let i=0; i < reviews.length; i++) { %>
                 <div class="card h-100" style="margin: 4.1%">
