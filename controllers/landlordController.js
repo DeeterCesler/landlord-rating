@@ -21,7 +21,7 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/search", async (req, res) => {
-    const foundLandlords = await Landlord.find({name: req.body.q});
+    const foundLandlords = await Landlord.find({name: req.body.q}).populate("ratings");
     res.render('landlords/search.ejs', {
         landlords: foundLandlords,
         query: req.body.q
