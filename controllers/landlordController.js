@@ -21,10 +21,12 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/search", async (req, res) => {
-    const foundLandlords = await Landlord.find({name: req.body.q}).populate("ratings");
+    const foundLandlords = await Landlord.find({name: req.body.q});
+    const foundReviews = await Reviews.find().populate("landlord");
     res.render('landlords/search.ejs', {
         landlords: foundLandlords,
-        query: req.body.q
+        query: req.body.q,
+        reviews: foundReviews
     })
 })
 
