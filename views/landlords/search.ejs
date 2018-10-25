@@ -31,6 +31,21 @@
                         <ul>
                             <li style="list-style-type:none">
                                 <h5><a href="/landlords/<%= landlords[i]._id%>"><%=landlords[i].name%></a></h5>
+                                <% let sum = 0; %>
+                                <% let ratingsCounter = 0; %> 
+                                <% for(let j=0; j < reviews.length; j++) { %>
+                                    <% if(reviews[j].landlord.name.toString() === query) { %>
+                                        <% sum += reviews[j].rating; %>
+                                        <% ratingsCounter++; %>
+                                    <% } %>
+                                <% } %>
+                                <% const average = (sum / ratingsCounter) %>
+                                <% if(!average){ %>
+                                    <p>No reviews submitted for <%=query%> yet.</p>
+                                    <% break; %>
+                                    <% } else { %>
+                                <p>Overall rating: <%= average %></p>
+                                <% } %>
                             </li>
                         </ul>
                     <% } %>
