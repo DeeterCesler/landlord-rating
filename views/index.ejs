@@ -17,105 +17,47 @@
                   <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
                </div>
             </div>
-            <div class="carousel-item ">
-                <img class="d-block w-100 denver-img" src="http://localhost:3000/images/denver-day.png" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                                    <img src="http://localhost:3000/images/rentsmart-logo-white.png" height="250px" width="200px">
-
-                    <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
-                  </div>
-              </div>
         </div> 
       </div>
-  
-        <h1 class="welcome-top">Welcome to Rent Smart</h1>
+  <div class = "container">
         <% if(user) { %>
-          <p>Hello, <%= user %></p>
+          <h1 class="text-center welcome">Hello, <%= user %></h1>
       <% } %>
-        <h2>leave reviews on your landlord</h2>
 
-        <div  class="carousel slide" data-ride="carousel">
+        <div  class="carousel slide text-center review-slider" data-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
                   <% for (let i= 0; i < reviews.length; i ++) { %>
-                    
-                          <h4 class="card-title">Review</h4>
-                  
-                          Landlord: <%= reviews[i].landlord.name %><br> 
-                          <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
-                          Property address: <%=reviews[i].address%></br>
-                          Overall rating: <%=reviews[i].rating%></br>
-                          Experience: <%=reviews[i].comment%></br>
-                          <%=reviews[i].dateStart%></br>
-                          <%=reviews[i].dateEnd%></br>
-                          <form action="/reviews/<%=reviews[i]._id%>?_method=DELETE" method="POST">
-                              <input type="submit" value="Delete">
-                          </form>
-                 </div>
+                    <div class="carousel-item 
+                    <% if(reviews[i] === reviews[0]){ %>
+                      <%= 'active' %>
+                    <% } %>
+                    ">
+                      <h4 class="card-title">Review</h4>
+              
+                      Landlord: <%= reviews[i].landlord.name %><br> 
+                      <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
+                      Property address: <%=reviews[i].address%></br>
+                      Overall rating: <%=reviews[i].rating%></br>
+                      Experience: <%=reviews[i].comment%></br>
+                      <%=reviews[i].dateStart%></br>
+                      <%=reviews[i].dateEnd%></br>
+                    </div>
                  <% } %>
               </div>
             
           </div> 
-        
-
-        
-        
-        <div class="row">
-          <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-              <h4 class="card-header">Review</h4>
-              <div class="card-body">
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Learn More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-              <h4 class="card-header">Review</h4>
-              <div class="card-body">
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Learn More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-              <h4 class="card-header">Review</h4>
-              <div class="card-body">
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- /.row -->
   
-        
   
         <!-- Call to Action Section -->
-        <div class="row mb-4">
-          <div class="col-md-8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-          </div>
-          <div class="col-md-4">
-            <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
-          </div>
-        </div>
-  
+      
       </div>
         <!-- Footer -->
       <footer class="py-5 bg-dark">
         <div class="container">
           <p class="m-0 text-center text-white">Copyright &copy; RentSmart 2018</p>
         </div>
-      </footer> -->
+      </footer> 
   
       <!-- Bootstrap core JavaScript -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
