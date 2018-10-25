@@ -17,22 +17,12 @@
                   <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
                </div>
             </div>
-            <div class="carousel-item ">
-                <img class="d-block w-100 denver-img" src="http://localhost:3000/images/denver-day.png" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                                    <img src="http://localhost:3000/images/rentsmart-logo-white.png" height="250px" width="200px">
-
-                    <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
-                  </div>
-              </div>
         </div> 
       </div>
   <div class = "container">
-        <h1 class="welcome-top text-center">Welcome to Rent Smart</h1>
         <% if(user) { %>
-          <p>Hello, <%= user %></p>
+          <h1 class="text-center welcome">Hello, <%= user %></h1>
       <% } %>
-        <h2 class="text-center">leave reviews on your landlord</h2>
 
         <div  class="carousel slide text-center review-slider" data-ride="carousel">
             <div class="carousel-inner">
