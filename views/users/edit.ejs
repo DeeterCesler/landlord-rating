@@ -14,5 +14,10 @@
         Email: <input type="email" name="email" value ="<%= user.email %>"><br>
         <input type="submit">
     </form>
+    <br>
+    <br>
+    <form action="/users/delete?_method=DELETE" method="POST">
+        <input type="submit" value="delete <%= user.name %>">
+    </form>
 </body>
 </html>
