@@ -4,12 +4,15 @@ const User = require("../models/users");
 const bcrypt = require("bcryptjs");
 
 router.get("/register", (req, res) => {
-    res.render("auth/register.ejs");
+    res.render("auth/register.ejs", {
+        user: null
+    });
 });
 
 router.get("/login", (req, res) => {
     res.render("auth/login.ejs", {
-        message: req.session.message
+        message: req.session.message,
+        user: null
     });
 });
 

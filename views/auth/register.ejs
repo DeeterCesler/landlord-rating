@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <%- include ../partials/_header %>
+    <title>RentSmart | Register</title>
 </head>
 <body>
-    <h3>Register as a new user</h3>
-    <form method="POST" action="/auth/register">
-        <p>Your name:</p><input type="text" name="name">
-        <p>username:</p><input type="text" name="username">
-        <p>email:</p><input type="email" name="email">
-        <p>password:</p><input type="password" name="password"><br><br>
-        <input type="submit">
-    </form>
+    <%- include ../partials/_navbar %>
+    <div class="login-background">
+        <div class="opacity">
+            <div class="top-space"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6" style="background-color: white">    
+                        <h3>Register as a new user</h3>
+                        <form method="POST" action="/auth/register">
+                            <p>Your name:</p><input type="text" name="name">
+                            <p>username:</p><input type="text" name="username">
+                            <p>email:</p><input type="email" name="email">
+                            <p>password:</p><input type="password" name="password"><br><br>
+                            <input type="submit">
+                        </form>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
