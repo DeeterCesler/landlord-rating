@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-        <%- include ../partials/_navbar %>
+  <%- include ../partials/_navbar %>
 
+<<<<<<< HEAD
 
 
     <!-- Page Content -->
@@ -47,19 +48,55 @@
               </form>
               <p><a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review here</a></p>
                   </div>
+=======
+  <!-- Page Content -->
+  <div class="container">
+    <div class = "top-space">
+  </div>
+      
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4">
+    <h1 class="display-3">REVIEW TIME!</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+    <a href ="/reviews/new" class="btn btn-primary btn-lg">Create a Review!</a>
+  </header>
+
+  <!-- Page Features -->
+  <div class="row text-center">
+    <% for (let i= 0; i < reviews.length; i ++) { %>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Review</h4>
+            Landlord: <%= reviews[i].landlord.name %><br> 
+            <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
+            Property address: <%=reviews[i].address%></br>
+            Overall rating: <%=reviews[i].rating%></br>
+            Experience: <%=reviews[i].comment%></br>
+            <%=reviews[i].dateStart%></br>
+            <%=reviews[i].dateEnd%></br>
+            <form action="/reviews/<%=reviews[i]._id%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+            <p><a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review here</a></p>
+>>>>>>> 861d3c5c273241b3cfd8d2bab5f335d9e6fdd6f9
           </div>
         </div>
-        <% } %>
       </div>
-      <!-- /.row -->
-    
-
-
-                   
-
-
+    <% } %>
+  </div>
+  <!-- /.row -->
+  
+  <!-- /.container -->
+  <div class = "top-space">
+  </div>
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; RentSmart 2018</p>
     </div>
     <!-- /.container -->
+<<<<<<< HEAD
     <div class = "top-space">
     </div>
   </div>
@@ -70,6 +107,9 @@
       </div>
       <!-- /.container -->
     </footer>
+=======
+  </footer>
+>>>>>>> 861d3c5c273241b3cfd8d2bab5f335d9e6fdd6f9
 </body>
 </html>
     

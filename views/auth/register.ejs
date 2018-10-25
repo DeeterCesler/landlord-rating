@@ -1,19 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <%- include ../partials/_header %>
+    <title>RentSmart | Register</title>
 </head>
 <body>
-    <h3>Register as a new user</h3>
-    <form method="POST" action="/auth/register">
-        <p>Your name:</p><input type="text" name="name">
-        <p>username:</p><input type="text" name="username">
-        <p>email:</p><input type="email" name="email">
-        <p>password:</p><input type="password" name="password"><br><br>
-        <input type="submit">
-    </form>
+    <%- include ../partials/_navbar %>
+    <div class="login-background">
+        <div class="opacity">
+            <div class="top-space"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6" style="background-color: white">
+                        <br>
+                        <h3 style="text-align:center">Register as a new user</h3>
+                        <br>
+                        <form method="POST" action="/auth/register">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                        <p>Your name:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                        <p>username:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="username">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                        <p>email:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="email" name="email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                        <p>password:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="password" name="password"><br><br>
+                                    </div>
+                                </div>
+                                <br>
+                                <div style="text-align: center">
+                                    <input type="submit">
+                                </div>
+                                <br>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+            <div class="top-space"></div>
+            <div class="top-space"></div>
+        </div>
+    </div>
 </body>
 </html>

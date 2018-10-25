@@ -5,7 +5,7 @@ module.exports = function(req, res, next){
         next();
     }
     else {
-        console.log("NOPE");
+        console.log("NOT LOGGED IN -- redirecting");
         req.session.message = "You need to log in before you can do that."
         res.redirect("/auth/login");
     };
