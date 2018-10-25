@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <%- include ../partials/_header %>
-
-    <title>Document</title>
+    <%- include ../partials/_header %>
+    <title>RentSmart | Search results for "<%=query%>"</title>
 </head>
 <body>
-        <%- include ../partials/_navbar %>
-        <div class = "top-space">
-         </div>
-    <h1>Search Results for <%=query%></h1>
-
-    <% for (let i =0; i < landlords.length; i++ ) { %>
-        <p>test</p>
-        <li><a href="/landlords/<%= landlords[i]._id%>"><%=landlords[i].name%></a></li>
-  <% } %>
+    <%- include ../partials/_navbar %>
+    <div class="login-background">
+        <div class="opacity">
+            <div class = "top-space"></div>
+            <div class="container" style="background-color: white">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                    <br>
+                    <br>
+                    <% if(landlords.length === 0){ %>
+                        <h1>We found 0 results matching "<%=query%>"</h1>
+                        <br>
+                        <h5>Try changing your spelling, or looking up someone else.</h5>
+                    <% } %>
+                    <% if(landlords.length === 1){ %>
+                        <h1>We found 1 result matching "<%=query%>"</h1>
+                    <% } %>
+                    <% if(landlords.length > 1){ %>
+                        <h1>We found <%= landlords.length %> results matching "<%=query%>"</h1>
+                    <% } %>
+                    <% for (let i =0; i < landlords.length; i++ ) { %>
+                        <br>
+                        <ul>
+                            <li style="list-style-type:none">
+                                <h5><a href="/landlords/<%= landlords[i]._id%>"><%=landlords[i].name%></a></h5>
+                            </li>
+                        </ul>
+                    <% } %>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <div class = "top-space"></div>
+            </div>
+            <div class = "top-space"></div>
+            <div class = "top-space"></div>
+        </div>
+    </div>
 </body>
 </html>
