@@ -27,8 +27,8 @@ router.post("/search", async (req, res) => {
         landlords: foundLandlords,
         query: req.body.q,
         reviews: foundReviews
-    })
-})
+    });
+});
 
 
 
