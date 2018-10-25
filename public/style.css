@@ -64,7 +64,6 @@ div.jumbotron {
 
 }
 
-
 .jumbotron-content {
     font-weight: 900;
     background-color: rgba(255, 255, 255, 0.637);
@@ -76,6 +75,9 @@ div.jumbotron {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ddc04e57418a8ff18226c9a1726f7c7b372921e9
 .landlord-jumbo-new {
     background: url("http://localhost:3000/images/white-apartments.png") ;
     background-size: cover;
@@ -95,7 +97,11 @@ div.jumbotron {
 .landlord-form {
     padding-left: 15em;
 }
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> ddc04e57418a8ff18226c9a1726f7c7b372921e9
 .login-background {
     background-image: url("./images/condo.jpg");
     background-size: fill;
@@ -106,5 +112,8 @@ div.jumbotron {
     background-color: rgba(250, 250, 250, .5)
     /* opacity: 50%; */
     /* fill-opacity: 50%; */
+<<<<<<< HEAD
 >>>>>>> 861d3c5c273241b3cfd8d2bab5f335d9e6fdd6f9
+=======
+>>>>>>> ddc04e57418a8ff18226c9a1726f7c7b372921e9
 }
