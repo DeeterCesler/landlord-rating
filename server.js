@@ -16,7 +16,7 @@ const Reviews = require('./models/reviews');
 const requireLogin = require("./middleware/requireLogin");
 
 const store = new MongoDBStore({
-    uri: 'mongodb://localhost/landlordapp',
+    uri: process.env.MONGODB_URI || 'mongodb://localhost/landlordapp',
     databaseName: 'landlordapp',
     collection: 'mySessions'
 });
