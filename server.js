@@ -17,7 +17,6 @@ const requireLogin = require("./middleware/requireLogin");
 
 const store = new MongoDBStore({
     uri: process.env.MONGODB_URI,
-    databaseName: 'landlordapp',
     collection: 'mySessions'
 });
    
