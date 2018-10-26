@@ -66,10 +66,19 @@ router.get('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
+        const foundReview = await Reviews.findById(req.params.id).populate("user");
+        const foundUser = foundReview.user;
+        for(let i=0; i< foundUser.reviews.length; i++){
+            if(foundUser.reviews[i].toString() === req.params.id.toString()){
+                await foundUser.reviews.splice(i,1);
+                foundUser.save();
+            };
+        };
         await Reviews.findByIdAndDelete(req.params.id);
         console.log('deleting')
-        res.redirect('/reviews');
+        res.redirect('/users');
     } catch(err){
+        console.log(err);
         res.send(err);
     }
 })
@@ -79,8 +88,10 @@ router.delete('/:id', async (req, res) => {
 router.get('/:id/edit', async (req, res)=>{
     try {
       const foundReview = await Reviews.findById(req.params.id);
+      const foundLandlords = await Landlords.find();
       res.render('reviews/edit.ejs', {
         review: foundReview,
+        landlords: foundLandlords
       });
 
     } catch (err){
