@@ -16,7 +16,7 @@ const Reviews = require('./models/reviews');
 const requireLogin = require("./middleware/requireLogin");
 
 const store = new MongoDBStore({
-    uri: process.env.MONGODB_URI || 'mongodb://localhost/landlordapp',
+    uri: process.env.MONGODB_URI,
     databaseName: 'landlordapp',
     collection: 'mySessions'
 });
@@ -27,8 +27,7 @@ store.on('connected', function() {
    
   // Catch errors
 store.on('error', function(error) {
-    assert.ifError(error);
-    assert.ok(false);
+    console.log(error);
 });
    
 
