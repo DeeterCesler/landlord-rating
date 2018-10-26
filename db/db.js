@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb://localhost/landlords';
+// const connectionString = 'mongodb://localhost/landlords';
+var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/landlords';
 
-mongoose.connect(connectionString, { useNewUrlParser: true });
+mongoose.connect(mongoUri, { useNewUrlParser: true });
 
 mongoose.connection.on('connected', () => {
-  console.log(`Mongoose connected to ${connectionString}`);
+  console.log(`Mongoose connected to ${mongoUri}`);
 });
 
 mongoose.connection.on('disconnected', () => {
