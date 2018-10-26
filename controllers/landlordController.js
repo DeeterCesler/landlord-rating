@@ -72,6 +72,7 @@ router.get("/:id/edit", async (req, res) => {
 router.put("/:id", async (req, res) => {
     try {
         const updatedLandlord = await Landlord.findByIdAndUpdate(req.params.id, req.body);
+        updatedLandlord.save();
         res.redirect("/landlords");
     }catch(err){
         console.log("WHOOPSIE DAISY")
