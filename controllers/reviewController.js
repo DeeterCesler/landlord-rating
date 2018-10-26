@@ -102,9 +102,11 @@ router.get('/:id/edit', async (req, res)=>{
 
 router.put('/:id', async (req, res)=>{
    try {
-    await Reviews.findOneAndUpdate(req.params.id, req.body);
+    const editedReview = await Reviews.findOneAndUpdate(req.params.id, req.body);
+    editedReview.save();
     res.redirect('/reviews');
    } catch (err) {
+    console.log(err);
     res.send(err)
    }
    
