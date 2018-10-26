@@ -26,6 +26,7 @@ router.post('/register', async (req, res) => {
     userEntry.email = req.body.email;
     userEntry.name = req.body.name;
     const user = await User.create(userEntry);
+    user.save();
     // initializing the session here
     req.session.username = req.body.username;
     req.session.name = req.body.name;

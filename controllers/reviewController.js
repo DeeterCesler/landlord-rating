@@ -24,23 +24,34 @@ router.get('/', async (req, res) => {
 
 // Reviews New Route
 router.get('/new', requireLogin, async (req,res) => {
-    const foundLandlords = await Landlords.find({});
-    res.render('reviews/new.ejs', {
-        landlords: foundLandlords,
-        user: req.session.userId
-    })
+    try {
+        const foundLandlords = await Landlords.find({});
+        res.render('reviews/new.ejs', {
+            landlords: foundLandlords,
+            user: req.session.userId
+        })
+    } catch(err){
+        console.log(err);
+    }
 })
 
 // Create a review route
 router.post('/', async (req, res)=> {
     try{
+        console.log(req.body.user);
+        console.log("HERE");
         const newReview = await Reviews.create(req.body);
+        console.log(req.body.user);
+        console.log("HERE");
+        const allUsers = await Users.find();
+        console.log(allUsers);
         const foundUser = await Users.findById(req.body.user);
+        console.log(foundUser);
         foundUser.reviews.push(newReview._id);
         foundUser.save();
         res.redirect('/reviews');
     }catch(err){
-        res.send(err);
+        console.log(err);
     }
 
  });
