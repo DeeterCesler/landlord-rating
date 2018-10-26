@@ -67,7 +67,7 @@ app.get("/", async (req, res)=> {
     });
 })
 
-port = process.env.PORT || 3000;
+const port = process.env.PORT
 app.listen(port, () => {
     console.log(`LIVE @ ${port}`);
 })
