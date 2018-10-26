@@ -38,11 +38,7 @@
               Experience: <%=reviews[i].comment%></br>
               <%=reviews[i].dateStart%></br>
               <%=reviews[i].dateEnd%></br>
-              <form action="/reviews/<%=reviews[i]._id%>?_method=DELETE" method="POST">
-                  <input type="submit" value="Delete">
-              </form>
-              <p><a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review here</a></p>
-                  </div>
+              </div>
           </div>
         </div>
       </div>
