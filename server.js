@@ -27,8 +27,7 @@ store.on('connected', function() {
    
   // Catch errors
 store.on('error', function(error) {
-    assert.ifError(error);
-    assert.ok(false);
+    console.log(error);
 });
    
 
