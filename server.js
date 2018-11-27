@@ -16,8 +16,7 @@ const Reviews = require('./models/reviews');
 const requireLogin = require("./middleware/requireLogin");
 
 const store = new MongoDBStore({
-    uri: process.env.MONGODB_URI || 'mongodb://localhost/landlordapp',
-    databaseName: 'landlordapp',
+    uri: process.env.MONGODB_URI,
     collection: 'mySessions'
 });
    
@@ -67,7 +66,7 @@ app.get("/", async (req, res)=> {
     });
 })
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || "3000"
 app.listen(port, () => {
     console.log(`LIVE @ ${port}`);
 })

@@ -59,7 +59,7 @@ Login Page
 }
 
 div.jumbotron {
-    background: url("http://localhost:3000/images/denver-day.png") ;
+    background: url("images/denver-day.png") ;
     background-size: cover;
 
 }
@@ -76,7 +76,7 @@ div.jumbotron {
 
 
 .landlord-jumbo-new {
-    background: url("http://localhost:3000/images/white-apartments.png") ;
+    background: url("images/white-apartments.png") ;
     background-size: cover;
     height: 20em;
     margin-top: 5em;
@@ -97,7 +97,7 @@ div.jumbotron {
 }
 
 .login-background {
-    background-image: url("./images/condo.jpg");
+    background-image: url("images/condo.jpg");
     background-size: fill;
     background-size: 100%;
     
