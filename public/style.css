@@ -108,3 +108,23 @@ div.jumbotron {
     /* opacity: 50%; */
     /* fill-opacity: 50%; */
 }
+
+
+.profile-btn {
+    list-style-type: none !important;
+    margin: 5px;
+    width: 160px;
+    height: 40px;
+    align-content: center;
+}
+
+.profile-heading {
+    margin-bottom: 25px;
+}
+
+.profile-list-group {
+    padding: 0 35px;
+    list-style-type: none !important;
+
+    
+}

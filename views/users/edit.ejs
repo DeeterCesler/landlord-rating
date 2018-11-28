@@ -1,23 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <%- include ../partials/_header %>
+
     <title>Document</title>
 </head>
 <body>
+    <%- include ../partials/_navbar %>
+
     <h1>Edit info for <%= user.name %></h1>
-    <form action= "/users?_method=PUT" method ="POST">
-        Name: <input type="text" name="name" value ="<%= user.name %>"><br>
-        Username: <input type="text" name="username" value ="<%= user.username %>"><br>
-        Email: <input type="email" name="email" value ="<%= user.email %>"><br>
-        <input type="submit">
-    </form>
+  
     <br>
     <br>
-    <form action="/users/delete?_method=DELETE" method="POST">
-        <input type="submit" value="delete <%= user.name %>">
-    </form>
+   
+    <div class="container bootstrap snippet">
+            <div class="row">
+                  <div class="col-sm-10"><h1>Edit info for <%= user.name %></h1></div>
+            </div>
+            <div class="row">
+                  <div class="col-sm-3"><!--left col-->
+                      
+        
+              <div class="text-center">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+              </div></hr><br>
+              <ul class="list-group profile-list-group">
+                    <li>
+                        <form action="/users/delete?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete <%= user.name %>" class="profile-btn btn btn-primary">
+                         </form></a>
+                    </li>
+                  </ul> 
+                      
+                    
+                
+                  
+                  
+                       
+                  
+                  
+                </div><!--/col-3-->
+                <div class="col-sm-9">
+                  
+        
+                      
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        <hr>
+                        <form action= "/users?_method=PUT" method ="POST">
+                            <div class="form-group">
+                                  
+                                  <div class="col-xs-6">
+                                    <label for="first_name"><h4>Name</h4></label>
+                                     <input type="text" name="name" value ="<%= user.name %>" class="form-control"><br>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  
+                                  <div class="col-xs-6">
+                                    <label for="last_name"><h4>Username</h4></label>
+                                    <input type="text" name="username" value ="<%= user.username %>" class="form-control"><br>
+                                    </div>
+                              </div>
+                  
+                              <div class="form-group">
+                                  
+                                  <div class="col-xs-6">
+                                      <label for="email"><h4>Email</h4></label>
+                                     <input type="email" name="email" value ="<%= user.email %>" class="form-control" ><br>
+                                  </div>
+                              </div>
+                              <input type="submit" class="profile-btn btn btn-primary">
+
+                          </form>
+                      
+                      <hr>
+                      
+                     </div><!--/tab-pane-->
+                    
+                  </div><!--/tab-content-->
+        
+                </div><!--/col-9-->
+            </div><!--/row-->
 </body>
 </html>
