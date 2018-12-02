@@ -12,39 +12,42 @@
     <div class="container">
         <!-- <div class="row"> -->
             <h1><%= landlord.name %></h1>
-            <p><%= landlord.name %>'s overall rating: <%=  %>
-                <% let sum = 0; %>
-                <% let ratingsCounter = 0; %> 
-                <% for(let j=0; j < reviews.length; j++) { %>
-                    <% sum += reviews[j].rating; %>
-                    <% ratingsCounter++; %>
-                <% } %>
-                <% const average = (sum / ratingsCounter) %>
-                <% if(!average){ %>
-                    <p>No reviews submitted for <%=landlord.name%> yet.</p>
-                <% } else { %>
-                <%= parseFloat(average).toFixed(2)%>
-                <% } %>
-            out of 5</p>
-            <h3>Reviews about <%= landlord.name %>:</h3>
-            <% for(let i=0; i < reviews.length; i++) { %>
-                <div class="card h-100" style="margin: 4.1%">
-                <h4 class="card-header"><%= reviews[i].address %></h4>
-                <div class="card-body">
-                    <p class="card-text">What 
-                        <% for(let j=0; j < userReviews.length; j++) { %>
-                            <% if(reviews[i].user.toString() === userReviews[j].user._id.toString()){ %>
-                                <%= userReviews[j].user.username %>
-                                <% break %>
+            <% let sum = 0; %>
+            <% let ratingsCounter = 0; %> 
+            <% for(let j=0; j < reviews.length; j++) { %>
+                <% sum += reviews[j].rating; %>
+                <% ratingsCounter++; %>
+            <% } %>
+            <% const average = (sum / ratingsCounter) %>
+            <% if(!average){ %>
+                <p>No reviews submitted for <%=landlord.name%> yet.</p>
+            <% } else { %>
+                <p><%= landlord.name %>'s overall rating: %></p>
+                    <br/>
+                <p><%= parseFloat(average).toFixed(2)%> out of 5</p>
+            <% } %>
+            </p>
+            <% if(ratingsCounter > 0){ %>
+                <h3>Reviews about <%= landlord.name %>:</h3>
+                <% for(let i=0; i < reviews.length; i++) { %>
+                    <div class="card h-100" style="margin: 4.1%">
+                    <h4 class="card-header"><%= reviews[i].address %></h4>
+                    <div class="card-body">
+                        <p class="card-text">What 
+                            <% for(let j=0; j < userReviews.length; j++) { %>
+                                <% if(reviews[i].user.toString() === userReviews[j].user._id.toString()){ %>
+                                    <%= userReviews[j].user.username %>
+                                    <% break %>
+                                <% } %>
                             <% } %>
-                        <% } %>
-                         said about <i><%= reviews[i].landlord.name %></i>:</p>
-                    <p class="card-text">"<%= reviews[i].comment %>"</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                </div>
-                </div>
+                            said about <i><%= reviews[i].landlord.name %></i>:</p>
+                        <p class="card-text">"<%= reviews[i].comment %>"</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                    </div>
+                <% } %>
             <% } %>
             <p><a href="/landlords/<%= landlord._id %>/edit">edit <%= landlord.name %>
         <!-- </div> -->
