@@ -6,58 +6,43 @@
     <title>Landlords</title>
 </head>
 <body>
-        <%- include ../partials/_navbar %>
-    <div class = "top-space">
-
-    </div>
-
-    <div class="container">
-        <!-- Jumbotron Header -->
-        <div class="jumbotron my-4 landlord-jumbo">
-          <div class="jumbotron-content">
-            <h1 class="display-3">Landlords</h1>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <a href ="/landlords/new" class="btn btn-primary btn-lg">Add a new landlord</a>
-          </div>
+  <%- include ../partials/_navbar %>
+  <div class="container">
+  <div class = "top-space"></div>
+  <div class="container">
+      <!-- Jumbotron Header -->
+      <div class="jumbotron my-4 landlord-jumbo">
+        <div class="jumbotron-content" style="background:rgba(255, 255, 255, .85)">
+          <h1 class="display-3">Landlords</h1>
+          <p class="lead ">Find landlords in the Denver area and see previous tenants' reviews.</p>
+          <a href ="/landlords/new" class="btn btn-primary btn-lg">Add a new landlord</a>
         </div>
       </div>
-    <div class="container landlord-content">
-        <div class="row">
-          <div class="col-6" >
-              <% for (let i= 0; i < landlords.length; i ++) { %>
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title"><%= landlords[i].name %></h4>
-                    <p><a href="/landlords/<%= landlords[i]._id %>">see more about <%= landlords[i].name %></a></p>
-                    <!-- <% for(let i=0; i<landlords.length; i++) { %>
-                      lords[i].name %></a></p>
-                    <% } %>
-                -->
-                </div>
-                </div>
-              <% } %>
-            </div>
-           
-                <div class="col">
-                    <img src="images/apartment.png" width="500px" height="800">
-                </div>
+  </div>
+  <div class="container landlord-content">
+      <div class="row">
+        <div class="col-6" >
+            <% for (let i= 0; i < landlords.length; i ++) { %>
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title"><%= landlords[i].name %></h4>
+                  <p><a href="/landlords/<%= landlords[i]._id %>">see more about <%= landlords[i].name %></a></p>
+                  <!-- <% for(let i=0; i<landlords.length; i++) { %>
+                    lords[i].name %></a></p>
+                  <% } %>
+              -->
+              </div>
+              </div>
+            <% } %>
           </div>
+          
+              <div class="col">
+                  <img src="images/apartment.png" width="500px" height="800">
+              </div>
         </div>
-      </div>
-    
-              
-              <!-- Page Features -->
-              
-             
-             
-              
-              <!-- /.row -->            
-        
-        
-            <!-- Footer -->
-            <%- include ../partials/_footer %>     
-
-        </div>
-        
+  </div>
+  </div>
+  <!-- Footer -->
+  <%- include ../partials/_footer %>
 </body>
 </html>
