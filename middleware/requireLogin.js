@@ -3,7 +3,7 @@ module.exports = function(req, res, next){
     // if not, redirect them to log-in page with message saying you
     if(req.session.logged){
         console.log("LOGGED IN");
-        console.log(req.session.user);
+        console.log(req.session.username);
         next();
     }
     else {
