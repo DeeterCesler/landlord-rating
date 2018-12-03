@@ -15,15 +15,17 @@
               <div class="carousel-caption d-none d-md-block">
                   <img src="images/rentsmart-logo-white.png" height="250px" width="200px">
                   <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
-               </div>
+                  <span style="font-size: 10em; color: white">
+                    <i class="fas fa-angle-down"></i>
+                  </span>
+                </div>
             </div>
         </div> 
       </div>
-  <div class = "container">
-        <% if(user) { %>
-          <h1 class="text-center welcome">Hello, <%= user %></h1>
-      <% } %>
-
+  <div class = "text-center welcome container">
+       
+          <h1>Welcome to RentSmart</h1>
+          <p class="welcome-paragraph">Your reviews help shape a smarter, more well informed rental community. Here are some of the most recent reviews:</p>
         <div  class="carousel slide text-center review-slider" data-ride="carousel">
             <div class="carousel-inner">
                   <% for (let i= 0; i < reviews.length; i ++) { %>
