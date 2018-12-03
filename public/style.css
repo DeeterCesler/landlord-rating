@@ -55,7 +55,7 @@ Login Page
 
 .welcome {
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 div.jumbotron {
@@ -127,30 +127,4 @@ div.jumbotron {
     list-style-type: none !important;
 
     
-}
-
-.navbar-welcome {
-    padding: 0 1.5em ;
-    margin-top: 1em;
-    font-size: 20px;
-}
-
-.welcome-paragraph {
-    padding-bottom: 2em;
-}
-
-.review-content-bold {
-    font-weight: bold;
-}
-
-.review-card-content {
-    text-align: left;
-    margin: auto 0;
-    font-size: 20px;
-}
-
-.carousel {
-  
-    background-color: #202840ec;
-    color: white;
 }
