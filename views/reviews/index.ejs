@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include ../partials/_header %>
-    <title>Document</title>
+  <%- include ../partials/_header %>
+  <title>Document</title>
 </head>
 <body>
   <%- include ../partials/_navbar %>
-    <!-- Page Content -->
+  <!-- Page Content -->
+  <div class="container">
+    <div class = "top-space"></div>
+      
+    <!-- Jumbotron Header -->
     <div class="container">
-     <div class = "top-space"></div>
-        
       <!-- Jumbotron Header -->
-      <div class="container">
-        <!-- Jumbotron Header -->
-        <div class="jumbotron my-4 landlord-jumbo">
-          <div class="jumbotron-content">
-            <h1 class="display-3">Reviews</h1>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <a href ="/reviews/new" class="btn btn-primary btn-lg">Add a review</a>
-          </div>
+      <div class="jumbotron my-4 landlord-jumbo">
+        <div class="jumbotron-content" style="background:rgba(255, 255, 255, .85)">
+          <h1 class="display-3">Reviews</h1>
+          <p class="lead ">Find reviews on landlords in the Denver area, or add your own with the button below.</p>
+          <a href ="/reviews/new" class="btn btn-primary btn-lg">Add a review</a>
         </div>
       </div>
+    </div>
 
-      <!-- Page Features -->
-      <div class="container">
-        <div class="row text-center">
-          <% for (let i= 0; i < reviews.length; i ++) { %>
-            <div class="col-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Review</h4>
-                  Landlord: <%= reviews[i].landlord.name %><br> 
-                  <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
-                  Property address: <%=reviews[i].address%></br>
-                  Overall rating: <%=reviews[i].rating%></br>
-                  Experience: <%=reviews[i].comment%></br>
-                  <%=reviews[i].dateStart%></br>
-                  <%=reviews[i].dateEnd%></br>
-                </div>
+    <!-- Page Features -->
+    <div class="container">
+      <div class="row text-center">
+        <% for (let i= 0; i < reviews.length; i ++) { %>
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Review</h4>
+                Landlord: <%= reviews[i].landlord.name %><br> 
+                <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
+                Property address: <%=reviews[i].address%></br>
+                Overall rating: <%=reviews[i].rating%>/5</br>
+                Experience: <%=reviews[i].comment%></br>
+                <%=reviews[i].dateStart%></br>
+                <%=reviews[i].dateEnd%></br>
               </div>
             </div>
-          <% } %>
-        </div>
+          </div>
+        <% } %>
       </div>
+    </div>
+  </div>
   <!-- /.row -->
   
   <!-- /.container -->

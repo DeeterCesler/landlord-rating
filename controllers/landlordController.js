@@ -21,13 +21,19 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/search", async (req, res) => {
-    const foundLandlords = await Landlord.find({name: req.body.q});
-    const foundReviews = await Reviews.find().populate("landlord");
-    res.render('landlords/search.ejs', {
-        landlords: foundLandlords,
-        query: req.body.q,
-        reviews: foundReviews
-    });
+    try{
+        const upperCase = req.body.q.charAt(0).toUpperCase();
+        const upperCasedQuery = upperCase + req.body.q.slice(1);
+        const foundLandlords = await Landlord.find({$or:[{"name":req.body.q},{"name":upperCasedQuery},{"name" : {$regex : ".*"+req.body.q+".*"}},{"name" : {$regex : ".*" + upperCase + ".*"}}]});
+        const foundReviews = await Reviews.find().populate("landlord");
+        res.render('landlords/search.ejs', {
+            landlords: foundLandlords,
+            query: req.body.q,
+            reviews: foundReviews
+        });
+    }catch(err){
+        console.log(err);
+    }
 });
 
 
