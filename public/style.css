@@ -124,7 +124,29 @@ div.jumbotron {
 
 .profile-list-group {
     padding: 0 35px;
-    list-style-type: none !important;
+    list-style-type: none !important;    
+}
 
-    
+.about-section {
+    background-color: rgba(200, 200, 200);
+    height: 350px;
+}
+
+.inner-about {
+    padding: 2em;
+}
+
+.inner-about p {
+    padding-top: 2em;
+    padding-left: 9em;
+    padding-right: 9em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.inner-about h2 {
+    font-size: 2.5em;
+    padding-top: 1em;
+    padding-left: 3em;
+    text-align: center;
 }
