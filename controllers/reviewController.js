@@ -22,6 +22,22 @@ router.get('/', async (req, res) => {
     }
   })
 
+//   Map route
+router.get('/map', async (req, res) => {
+    try {
+        const foundLandlords = await Landlords.find({});
+        const foundReviews = await Reviews.find({}).populate("landlord");
+        // const foundUser = await Users.find({});
+        res.render('reviews/map.ejs', {
+           landlords: foundLandlords,
+           reviews: foundReviews,
+        //    user: req.session.name,
+        })
+    } catch (err) {
+        res.send(err)
+    }
+  })
+
 // Reviews New Route
 router.get('/new', requireLogin, async (req,res) => {
     try {
