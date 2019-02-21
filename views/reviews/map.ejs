@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+
+    <p>Landlord: <%= reviews[0].address %></p>
+    <% var address = reviews[0].address.replace(/ /g, "+") %>
+    <!-- <% console.log(address) %> -->
+    <div id="map"></div>
+    <script>
+        
+        // console.log("<%= address %>");
+        const address = "<%= address %>"
+        function initMap() {
+            const homeAddress = fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg`).then( function(response){
+                return response.json()
+            }).then(function(json){
+                const latOne = json.results[0].geometry.location.lat;
+                const lngOne = json.results[0].geometry.location.lng;
+                var homeCoordinates = {lat: latOne, lng: lngOne};
+                var markerTwo = new google.maps.Marker({position: homeCoordinates, map: map});
+            });
+            var denver = {lat: 39.73915, lng: -104.9847};
+
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 11, center: denver});
+
+            var markerOne = new google.maps.Marker({position: denver, map: map});
+            // var markerThree = new google.maps.Marker({position: denver, map: map});
+        }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&callback=initMap">
+    </script>
+    <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/geocode/json?address=8871+E+Amherst+Dr,+Denver,+CO&key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg">
+    </script> -->
+  </body>
+</html>
