@@ -7,16 +7,31 @@
 <body>
   <%- include ./partials/_navbar %>     
   <!-- Page Content -->
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100 denver-img" src="images/denver.png" alt="First slide">
-          <div class="carousel-caption d-none d-md-block">
-              <img src="images/rentsmart-logo-white.png" height="250px" width="200px">
-              <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
-            </div>
+  <div class="hero text-center">
+    <div class="container">
+      <div class="expand"></div>
+      <div class="row">
+        <div class="col">
+          <img src="images/rentsmart-logo-white.png" alt="rentsmart" height="250px" width="200px">
         </div>
-    </div> 
+      </div>
+      <div class="row">
+        <h1 class ="large-caption col">FIND RATINGS FOR DENVER APARTMENTS</h1>
+      </div>
+      <div class="cta-container">
+        <div class="row">
+          <div class="col">
+            <br/>
+            <div class="cta btn btn-primary btn-lg"><a href="/reviews">See property reviews</a></div>
+            <div class="cta btn btn-primary btn-lg"><a href="/landlords">See landlords</a></div>
+          </div>
+          <div style="height: 150px;">
+          </div>
+          </div>
+        </div>
+        <br/>
+      </div>
+    </div>
   </div>
   <div class = "container">
     <% if(user) { %>
