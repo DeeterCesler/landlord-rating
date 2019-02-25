@@ -157,10 +157,6 @@ div.jumbotron {
     border-radius: 5px;
 }
 
-.cta:hover{
-    /* background-color: rgba(150,20,25,.9); */
-}
-
 .cta a{
     text-decoration: none;
     color: white;
