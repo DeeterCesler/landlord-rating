@@ -2,67 +2,104 @@
 <html lang="en">
 <head>
    <%- include ./partials/_header %>
-    <title>Document</title>
+    <title>RentSmart | Find information and history on landlords in Boulder, Colorado</title>
 </head>
 <body>
-    <%- include ./partials/_navbar %>     
-      <!-- Page Content -->
-    
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100 denver-img" src="images/denver.png" alt="First slide">
-              <div class="carousel-caption d-none d-md-block">
-                  <img src="images/rentsmart-logo-white.png" height="250px" width="200px">
-                  <h1 class ="large-caption">WELCOME TO RENTSMART</h1>
-               </div>
-            </div>
-        </div> 
-      </div>
-  <div class = "container">
-        <% if(user) { %>
-          <h1 class="text-center welcome">Hello, <%= user %></h1>
-      <% } %>
-
-        <div  class="carousel slide text-center review-slider" data-ride="carousel">
-            <div class="carousel-inner">
-                  <% for (let i= 0; i < reviews.length; i ++) { %>
-                    <div class="carousel-item 
-                    <% if(reviews[i] === reviews[0]){ %>
-                      <%= 'active' %>
-                    <% } %>
-                    ">
-                      <h4 class="card-title">Review</h4>
-              
-                      Landlord: <%= reviews[i].landlord.name %><br> 
-                      <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
-                      Property address: <%=reviews[i].address%></br>
-                      Overall rating: <%=reviews[i].rating%></br>
-                      Experience: <%=reviews[i].comment%></br>
-                      <%=reviews[i].dateStart%></br>
-                      <%=reviews[i].dateEnd%></br>
-                    </div>
-                 <% } %>
-              </div>
-            
-          </div> 
-        <!-- /.row -->
-  
-  
-        <!-- Call to Action Section -->
-      
-      </div>
-        <!-- Footer -->
-      <footer class="py-5 bg-dark">
-        <div class="container">
-          <p class="m-0 text-center text-white">Copyright &copy; RentSmart 2018</p>
+  <%- include ./partials/_navbar %>     
+  <!-- Page Content -->
+  <div class="hero text-center">
+    <div class="container">
+      <div class="expand"></div>
+      <div class="row">
+        <div class="col">
+          <img src="images/rentsmart-logo-white.png" alt="rentsmart" height="250px" width="200px">
         </div>
-      </footer> 
-  
-      <!-- Bootstrap core JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
-  
-  </html>
+      </div>
+      <div class="row">
+        <h1 class ="medium-caption col">FIND RATINGS FOR BOULDER APARTMENTS</h1>
+      </div>
+      <div class="cta-container">
+        <div class="row">
+          <div class="col">
+            <br/>
+            <div class="cta btn btn-primary btn-lg"><a href="/reviews">See property reviews</a></div>
+            <div class="cta btn btn-primary btn-lg"><a href="/landlords">See landlords</a></div>
+          </div>
+          <div style="height: 150px;">
+          </div>
+          </div>
+        </div>
+        <br/>
+      </div>
+    </div>
+  </div>
+  <div class = "container">
+    <% if(user) { %>
+      <h1 class="text-center welcome">Hello, <%= user %></h1>
+    <% } %>
+    <br/>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2>recent reviews</h2>
+        </div>
+      </div>
+    </div>
+    <div  class="carousel slide text-center review-slider" data-ride="carousel" style="border-radius: 10px">
+      <div class="carousel-inner">
+        <% for (let i= 0; i < reviews.length; i ++) { %>
+          <div class="carousel-item 
+              <% if(reviews[i] === reviews[0]){ %>
+                <%= 'active' %>
+              <% } %>
+            ">
+            <!-- <h4 class="card-title">Review</h4> -->
+            Landlord: <%= reviews[i].landlord.name %><br> 
+            <!-- <a href="/reviews/<%=reviews[i]._id%>"><%=reviews[i].landlord%></a></br> -->
+            Property address: <%=reviews[i].address%></br>
+            Overall rating: <%=reviews[i].rating%></br>
+            Experience: <%=reviews[i].comment%></br>
+            <%=reviews[i].dateStart%></br>
+            <%=reviews[i].dateEnd%></br>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="about-section">
+    <div class="container">
+      <div class="row inner-about">
+        <h2>Learn the apartment's history before you move in</h2>
+        <br/>
+        <p>It takes a lot of trust to live in someone else's home. Before you rent, make sure you know who you're renting from.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container testimonial">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-lg-4 text-center">
+          <p>I've had bad experiences with landlords before—withholding a deposit, or not telling me issues about the apartment ahead of time.</p>
+          <p>Using RentSmart, I was able to find an apartment where I knew the landlord would be a partner, not a problem.</p>
+          <p><i><strong>Jenn, CU Boulder student</strong></i></p>
+        </div>
+        <div class="col-lg-4">
+          <img class="mb-5 d-block mx-auto" src="/images/smile.jpg" style="height: 250px; width: 250px; border-radius: 400px; text-align: center" alt="">
+        </div>
+        <div class="col-2">
+        </div>
+      </div>
+  </div>
+    <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; RentSmart 2018</p>
+    </div>
+  </footer>
+  <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
