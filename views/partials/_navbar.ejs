@@ -1,26 +1,23 @@
-
-
 <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #e9e9e9">
   <a href="/"> <img id = "nav-logo" src="/images/rentsmart-logo.png" height="50px" width="50px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-        class="fas fa-bars fa-1x"></i>X</span></button>
+    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i>X</span></button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <% if(user){ %>
           <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
-          </li> 
+          </li>
           <li class="nav-item">
               <a class="nav-link" href="/users">Profile</a>
           </li>
         <% } else if(!user) { %>
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">Login</a>
-          </li> 
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/auth/register">Register</a>
-          </li> 
+          </li>
         <% }%>
         <li class="nav-item">
           <a class="nav-link" href="/reviews">Reviews</a>
@@ -32,7 +29,7 @@
           <form action="/landlords/search" method="POST" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search landlords..." aria-label="Search" name ="q">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>             
+          </form>
         </li>
       </ul>
     </div>
