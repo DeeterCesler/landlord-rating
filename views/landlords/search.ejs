@@ -42,7 +42,6 @@
                                 <% const average = (sum / ratingsCounter) %>
                                 <% if(!average){ %>
                                     <p>No reviews submitted for <%=landlords[i].name%> yet.</p>
-                                    <% break; %>
                                     <% } else { %>
                                 <p>Overall rating: <%= parseFloat(average).toFixed(2)%> out of 5</p>
                                 <% } %>
