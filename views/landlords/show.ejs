@@ -36,15 +36,16 @@
                         <p class="card-text">What 
                             <% for(let j=0; j < userReviews.length; j++) { %>
                                 <% if(reviews[i].user.toString() === userReviews[j].user._id.toString()){ %>
-                                    <%= userReviews[j].user.username %>
-                                    <% break %>
+                                    <% if(userReviews[j].user.username != null){ %>
+                                        <%= userReviews[j].user.username %>
+                                    <% } %>
                                 <% } %>
                             <% } %>
                             said about <i><%= reviews[i].landlord.name %></i>:</p>
                         <p class="card-text">"<%= reviews[i].comment %>"</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Learn More</a>
+                        <!-- <a href="/reviews/<%=reviews[i].id%>" class="btn btn-primary">Learn More</a> -->
                     </div>
                     </div>
                 <% } %>

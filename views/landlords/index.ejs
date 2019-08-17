@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <%- include ../partials/_header %>
-
-    <title>Landlords</title>
+  <%- include ../partials/_header %>
+  <title>Landlords</title>
 </head>
 <body>
   <%- include ../partials/_navbar %>
@@ -21,7 +20,7 @@
   </div>
   <div class="container landlord-content">
       <div class="row">
-        <div class="col-6" >
+        <div class="col-md" >
             <% for (let i= 0; i < landlords.length; i ++) { %>
               <div class="card">
                 <div class="card-body">
@@ -35,14 +34,12 @@
               </div>
             <% } %>
           </div>
-          
-              <div class="col">
-                  <img src="images/apartment.png" width="500px" height="800">
-              </div>
+          <div class="col-md">
+              <img src="images/apartment.png" max-width="500px" height="800px">
+          </div>
         </div>
   </div>
   </div>
-  <!-- Footer -->
   <%- include ../partials/_footer %>
 </body>
 </html>
